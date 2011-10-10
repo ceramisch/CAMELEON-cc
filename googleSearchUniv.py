@@ -32,6 +32,7 @@ import re
 import html2text
 import sys
 import xml.dom.minidom
+import datetime
 
 from googlePage import GooglePage
 
@@ -108,6 +109,7 @@ class GoogleSearchUniv() :
                         #pdb.set_trace()
                         url = self.get_field( r, "U" )
                         title = self.get_field( r, "TNB" )
+                        date = str( datetime.date.today() )
                         snippet = self.split_sentences( self.clean( self.get_field( r, "SNB" ) ) )
                         text = self.split_sentences( self.clean( self.get_text_from_html( self.get_field( r, "U" ) ) ) )
                         if text :
