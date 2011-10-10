@@ -106,13 +106,14 @@ class GoogleSearchUniv() :
                 for r in result_dom.getElementsByTagName( 'RES' )[ 0 ].getElementsByTagName( 'R' ) :
                     if result_count < nb_results :
                         #pdb.set_trace()
-                        page = GooglePage( search_term, \
-                                           result_count, \
-                                           lang, \
-                                           self.get_field( r, "TNB" ), \
-                                           self.split_sentences( self.get_field( r, "SNB" ) ), \
-                                           self.split_sentences( self.clean( self.get_text_from_html( self.get_field( r, "U" ) ) ) ) )
-                        pages.append( page )
+                        url = self.get_field( r, "U" )
+                        title = self.get_field( r, "TNB" )
+                        snippet = self.split_sentences( self.clean( self.get_field( r, "SNB" ) ) )
+                        text = self.split_sentences( self.clean( self.get_text_from_html( self.get_field( r, "U" ) ) ) )
+                        if text :
+                            page = GooglePage( search_term, result_count, lang, \
+                                               date, url, title, snippet, text )                                           
+                            pages.append( page )
                         result_count = result_count + 1
                     else :
                         break
@@ -137,14 +138,18 @@ class GoogleSearchUniv() :
             page_text = re.sub( '\*\*([^\*]*)\*\*',"\\1", page_text)
             page_text = re.sub( ' *\* ','',page_text)
             page_text = re.sub( ' *! ','',page_text)            
-            page_text = re.sub( '#*','',page_text)                  
+            page_text = re.sub( '#*','',page_text)
             page_text = re.sub( '!\[[^\]]\]', '', page_text )
             page_text = re.sub( '!\[[^\]]*\]', '', page_text )
-            page_text = re.sub( '_', ' ', page_text )            
+            page_text = re.sub( '\&', '&amp;', page_text )
+            page_text = re.sub( '<', '&lt;', page_text )
+            page_text = re.sub( '>', '&gt;', page_text )
+            page_text = re.sub( '"', '&quot;', page_text )
+            page_text = re.sub( '_', ' ', page_text )
             for line in page_text.split( "\n" ) :
                 line = line.strip()
                 if len( line.split( " " ) ) > self.MIN_WORDS :
-                    text = text + "<s> " + line + " </s>\n"
+                    text = text + line + "\n"
         except Exception, e :
             print >> sys.stderr, "Warning, URL " + url + " ignored"
             print >> sys.stderr, e

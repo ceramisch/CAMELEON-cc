@@ -31,7 +31,7 @@ class GooglePage() :
 
 ################################################################################
 
-    def __init__( self, keywords, position, lang, title, snippet, text ) :
+    def __init__( self, keywords, position, lang, date, url, title, snippet, text ) :
         """
             Instanciates a new GooglePage.
             
@@ -41,6 +41,10 @@ class GooglePage() :
             @param position Index of this page in the result list.
             
             @param lang Language used in the request.
+            
+            @param date The date in which the website was retrieved.
+            
+            @param url The address of the website.            
             
             @param title Title of the website.
             
@@ -53,6 +57,8 @@ class GooglePage() :
         self.keywords    = keywords
         self.position = position
         self.lang     = lang
+        self.date     = date
+        self.url      = url
         self.title    = title
         self.snippet  = snippet # list of string sentences
         self.text     = text # list of string sentences    
@@ -63,20 +69,22 @@ class GooglePage() :
         """
             Returns a string containing an HTML version of the page.
         """
-        page = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-        page += "<!DOCTYPE page SYSTEM \"page.dtd\">"
-        page += "<page>"
+        page = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+        page += "<!DOCTYPE page SYSTEM \"page.dtd\">\n"
+        page += "<page>\n"
         page += "  <query keywords=\"" + self.keywords + \
                       "\" position=\"" + str( self.position ) + \
-                      "\" lang=\""     + self.lang + "\"/>"
-        page += "  <title>" + self.title + "</title>"
-        page += "  <snippet>"
+                      "\" lang=\""     + self.lang + \
+                      "\" date=\""     + self.date + "\"/>\n"
+        page += "  <url>" + self.url + "</url>\n"
+        page += "  <title>" + self.title + "</title>\n"
+        page += "  <snippet>\n"
         for s in self.snippet :
-            page += "    <s>" + s + "</s>"        
-        page += "  </snippet>"
-        page += "  <text>"
+            page += "    <s>" + s + "</s>\n"        
+        page += "  </snippet>\n"
+        page += "  <text>\n"
         for s in self.text :
-            page += "    <s>" + s + "</s>"
-        page += "  </text>"
-        page += "</page>"
+            page += "    <s>" + s + "</s>\n"
+        page += "  </text>\n"
+        page += "</page>\n"
         return page
