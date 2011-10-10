@@ -31,7 +31,7 @@ class GooglePage() :
 
 ################################################################################
 
-    __init__( self, keywords, position, lang, title, snippet, text ) :
+    def __init__( self, keywords, position, lang, title, snippet, text ) :
         """
             Instanciates a new GooglePage.
             
