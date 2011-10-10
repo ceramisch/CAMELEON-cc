@@ -112,7 +112,7 @@ class GoogleSearchUniv() :
                         date = str( datetime.date.today() )
                         snippet = self.split_sentences( self.clean( self.get_field( r, "SNB" ) ) )
                         text = self.split_sentences( self.clean( self.get_text_from_html( self.get_field( r, "U" ) ) ) )
-                        if text :
+                        if len(text) > 1 :
                             page = GooglePage( search_term, result_count, lang, \
                                                date, url, title, snippet, text )                                           
                             pages.append( page )
@@ -155,7 +155,6 @@ class GoogleSearchUniv() :
         except Exception, e :
             print >> sys.stderr, "Warning, URL " + url + " ignored"
             print >> sys.stderr, e
-            pdb.set_trace()
         return text
 
 ################################################################################    
