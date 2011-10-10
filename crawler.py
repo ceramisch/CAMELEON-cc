@@ -66,6 +66,7 @@ def treat_options( opts, arg, n_arg, usage_string ) :
     global nb_results 
     global lang
     global prefix
+    global key
     for ( o, a ) in opts:
         if o in ("-n", "--number") : 
             try :
