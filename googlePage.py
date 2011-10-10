@@ -78,5 +78,5 @@ class GooglePage() :
         for s in self.text :
             page += "    <s>" + s + "</s>"
         page += "  </text>"
-        page += "</page>
+        page += "</page>"
         return page

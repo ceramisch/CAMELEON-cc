@@ -158,11 +158,12 @@ class GoogleSearchUniv() :
         request = urllib2.Request( url, None, self.post_data )
         try :
             response = urllib2.urlopen( request )
+            response_string = response.read()
+            results = simplejson.loads( response_string, encoding="UTF-8" )            
+            return results            
         except urllib2.HTTPError, e:
-            pass
-        response_string = response.read()
-        results = simplejson.loads( response_string, encoding="UTF-8" )
-        return results
+            print >> sys.stderr, "Error processing query \"" + search_term + "\"\n" + url
+            return None
 
 ################################################################################  
 

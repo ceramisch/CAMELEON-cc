@@ -15,7 +15,7 @@ import sys
 #import tempfile
 import pdb
 
-#from util import usage, read_options, treat_options_simplest, verbose
+from util import read_options, treat_options_simplest, verbose
 from googleSearchUniv import GoogleSearchUniv
 
 ################################################################################
@@ -27,23 +27,31 @@ python %(program)s OPTIONS query
     
 OPTIONS may be:
 
--n <results> OR --number <results>
+-n OR --number
     Number of results used to form the textual base, which is used for the 
     further generation of the language model. Default value is 10.
 
--l <code> OR --lang <code>
+-l OR --lang
     Language of the result pages. Default value is "en" for English. Use 
     2-letter language codes.
--p <name> OR --prefix <name>
+    
+-p OR --prefix
     Prefix of the files where the corpus pages will be stocked. Default value is
     "corpus/page"
+    
+-k OR --key
+    The Google University Research Program key. Default value is empty. Although
+    this is not a required argument, the program won't work if you do not have
+    an account at the research program, run the script from the static IP 
+    registered in the program and specifying the related key.
 """
 nb_results = 10
 prefix = "corpus/page"
 lang = "en"
 __counter = 1
+key = ""
 
-################################################################################  
+################################################################################
 
 def treat_options( opts, arg, n_arg, usage_string ) :
     """
@@ -70,6 +78,8 @@ def treat_options( opts, arg, n_arg, usage_string ) :
             lang = a
         elif o in ("-p", "--prefix") :
             prefix = a    
+        elif o in ("-k", "--key") :
+            key = a
     treat_options_simplest( opts, arg, n_arg, usage_string )
     
 ################################################################################
@@ -96,13 +106,13 @@ def writefile( prefix, lang, text ) :
 ################################################################################  
 # MAIN SCRIPT
 
-longopts = [ "verbose", "number=", "lang=" ]
-arg = read_options( "vn:l:", longopts, treat_options, 1, usage_string )
+longopts = [ "verbose", "number=", "lang=", "prefix=", "key=" ]
+arg = read_options( "vn:l:p:k:", longopts, treat_options, 1, usage_string )
 
 try :    
     query = str( arg[ 0 ] ).strip()
     query_spaces = query.replace( "_"," " )
-    gs = GoogleSearchUniv()
+    gs = GoogleSearchUniv( key )
     pages = gs.get_pages( lang, query_spaces, nb_results )
     for page in pages :
         writefile( prefix, lang, page.to_html() )
