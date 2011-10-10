@@ -11,8 +11,7 @@ import sys
 #import re
 #import shelve
 #import xml.sax
-#import os
-#import tempfile
+import os
 import pdb
 
 from util import read_options, treat_options_simplest, verbose
@@ -39,7 +38,10 @@ OPTIONS may be:
     
 -p OR --prefix
     Prefix of the files where the corpus pages will be stocked. Default value is
-    "corpus/page"
+    the current folder ".". If the folder does not exist, it will be created. 
+    All the corpus files are organized in a folder named after the language code
+    of the retrieved pages. All files are prefixed by the query keywords and the
+    position of the page in the result rank.
     
 -k OR --key
     The Google University Research Program key. Default value is empty. Although
@@ -48,7 +50,7 @@ OPTIONS may be:
     registered in the program and specifying the related key.
 """
 nb_results = 10
-prefix = "corpus/page"
+prefix = "."
 lang = "en"
 __counter = 1
 key = ""
@@ -87,12 +89,15 @@ def treat_options( opts, arg, n_arg, usage_string ) :
     
 ################################################################################
 
-def writefile( prefix, lang, text ) :
+def writefile( prefix, lang, query, text ) :
     """
     """
     global nb_results
     global __counter
-    text_file = open( prefix + "_" + lang + "_" + str( __counter ) + ".xml" )
+    folder_name = prefix + "/" + lang + "/"
+    file_name = query + "_" + str( __counter ) + ".xml"
+    os.system( "mkdir -p " + folder_name )
+    text_file = open( folder_name + file_name, "w" )
     __counter = __counter + 1
     #pdb.set_trace()    
     ok = False
@@ -118,7 +123,7 @@ try :
     gs = GoogleSearchUniv( key )
     pages = gs.get_pages( lang, query_spaces, nb_results )
     for page in pages :
-        writefile( prefix, lang, page.to_html() )
+        writefile( prefix, lang, query, page.to_html() )
         
     
       

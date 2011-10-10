@@ -67,12 +67,12 @@ class GooglePage() :
         page += "<!DOCTYPE page SYSTEM \"page.dtd\">"
         page += "<page>"
         page += "  <query keywords=\"" + self.keywords + \
-                      "\" position=\"" + self.position + \
+                      "\" position=\"" + str( self.position ) + \
                       "\" lang=\""     + self.lang + "\"/>"
         page += "  <title>" + self.title + "</title>"
         page += "  <snippet>"
         for s in self.snippet :
-            page += "    <s>" + s + "</s>"        
+            page += "    <s>" + s.encode("utf-8") + "</s>"        
         page += "  </snippet>"
         page += "  <text>"
         for s in self.text :

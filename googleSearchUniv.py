@@ -77,6 +77,7 @@ class GoogleSearchUniv() :
                                           "clid"    : google_id ,
                                           "snippets": "true" } ) )
         self.post_data = {'Referer': 'https://github.com/ceramisch/CAMELEON-cc'}
+        self.MIN_WORDS = 1
             
 ################################################################################  
 
@@ -84,7 +85,7 @@ class GoogleSearchUniv() :
         """
             Blah
         """
-        nodeList = element.getElementsByTagName( name )[ 0 ].childNodes
+        nodelist = element.getElementsByTagName( name )[ 0 ].childNodes
         rc = []
         for node in nodelist:
             if node.nodeType == node.TEXT_NODE:
@@ -104,14 +105,14 @@ class GoogleSearchUniv() :
             try :
                 for r in result_dom.getElementsByTagName( 'RES' )[ 0 ].getElementsByTagName( 'R' ) :
                     if result_count < nb_results :
-                        pdb.set_trace()
+                        #pdb.set_trace()
                         page = GooglePage( search_term, \
                                            result_count, \
                                            lang, \
                                            self.get_field( r, "TNB" ), \
                                            self.split_sentences( self.get_field( r, "SNB" ) ), \
                                            self.split_sentences( self.clean( self.get_text_from_html( self.get_field( r, "U" ) ) ) ) )
-                        pages.add( page )
+                        pages.append( page )
                         result_count = result_count + 1
                     else :
                         break
