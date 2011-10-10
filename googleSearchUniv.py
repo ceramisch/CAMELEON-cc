@@ -84,11 +84,13 @@ class GoogleSearchUniv() :
         """
         pages = []
         result_count = 0
-        results = self.send_query( lang, search_term )
+        result_xml = self.send_query( lang, search_term )        
+        result_dom = xml.dom.minidom.parseString( result_xml )
         while result_count < nb_results :
             try :
-                for r in results[ "items" ] :
+                for r in dom_results.getElementsByTagName( 'RES' )[ 0 ].getElementsByTagName( 'R' ) :
                     if result_count < nb_results :
+                        pdb.set_trace()
                         page = GooglePage( search_term, \
                                            result_count, \
                                            lang, \
@@ -104,7 +106,8 @@ class GoogleSearchUniv() :
             except TypeError :
                 pdb.set_trace()
             if result_count < nb_results :
-                results = self.send_query( lang, search_term, start=result_count )        
+                result_xml = self.send_query( lang, search_term )        
+                result_dom = xml.dom.minidom.parseString( result_xml )
         return pages
         
 ################################################################################          
@@ -158,18 +161,7 @@ class GoogleSearchUniv() :
         request = urllib2.Request( url, None, self.post_data )
         try :
             response = urllib2.urlopen( request )
-            response_string = response.read()
-            dom_results = xml.dom.minidom.parseString( response_string )
-            #res_elements = dom_results.getElementsByTagName( 'RES' )
-            #if len( res_elements ) == 0 :
-            #    return 0
-            #else :
-            #    res_first = res_elements[ 0 ]        
-            #total = self.gettext( res_first.getElementsByTagName( 'M' )[ 0 ] )
-            #return int( total )
-            #return results   
-            pdb.set_trace()         
-            return dom_results
+            return response.read()
         except urllib2.HTTPError, e:
             print >> sys.stderr, "Error processing query \"" + search_term + "\"\n" + url
             return None
