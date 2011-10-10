@@ -159,8 +159,16 @@ class GoogleSearchUniv() :
         clean_text = clean_text.replace( "...", " " )
         clean_text = re.sub( "</?b>", "", clean_text )
         clean_text = re.sub( "\&[^;];", " ", clean_text )
-        clean_text = re.sub( "  *", " ", clean_text )
-        return clean_text
+        clean_text = re.sub( "  *", " ", clean_text )        
+        ok = False
+        while not ok :    
+            try :
+                out_text = clean_text.encode('utf-8', 'ignore')
+                ok = True
+            except Exception, e :
+                #print >> sys.stderr, "ERROR IN ENCODING"
+                clean_text = clean_text[:e[2]] + clean_text[e[2]+2:]    
+        return out_text
 
 ################################################################################  
 

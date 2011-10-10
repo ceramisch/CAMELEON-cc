@@ -100,15 +100,7 @@ def writefile( prefix, lang, query, text ) :
     text_file = open( folder_name + file_name, "w" )
     __counter = __counter + 1
     #pdb.set_trace()    
-    ok = False
-    while not ok :    
-        try :
-            text_str = text.encode('utf-8', 'ignore')
-            ok = True
-        except Exception, e :
-            #print >> sys.stderr, "ERROR IN ENCODING"
-            text = text[:e[2]] + text[e[2]+2:]    
-    text_file.writelines( text_str )
+    text_file.writelines( text )
     text_file.close()
     
 ################################################################################  

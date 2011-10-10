@@ -72,7 +72,7 @@ class GooglePage() :
         page += "  <title>" + self.title + "</title>"
         page += "  <snippet>"
         for s in self.snippet :
-            page += "    <s>" + s.encode("utf-8","ignore") + "</s>"        
+            page += "    <s>" + s + "</s>"        
         page += "  </snippet>"
         page += "  <text>"
         for s in self.text :
