@@ -18,7 +18,7 @@ import pdb
 from util import read_options, treat_options_simplest, verbose
 from googleSearchUniv import GoogleSearchUniv
 
-################################################################################
+###############################################################################
 # GLOBALS
 
 usage_string = """Usage: 
