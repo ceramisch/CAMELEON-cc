@@ -116,7 +116,7 @@ class GoogleSearchUniv() :
                             page = GooglePage( search_term, result_count, lang, \
                                                date, url, title, snippet, text )                                           
                             pages.append( page )
-                        result_count = result_count + 1
+                            result_count = result_count + 1
                     else :
                         break
             except TypeError :
