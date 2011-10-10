@@ -15,8 +15,8 @@ import sys
 #import tempfile
 import pdb
 
-from util import usage, read_options, treat_options_simplest, verbose
-from googleSearchUniv import GoogleSearch
+#from util import usage, read_options, treat_options_simplest, verbose
+from googleSearchUniv import GoogleSearchUniv
 
 ################################################################################
 # GLOBALS
@@ -27,27 +27,21 @@ python %(program)s OPTIONS query
     
 OPTIONS may be:
 
--n OR --number
+-n <results> OR --number <results>
     Number of results used to form the textual base, which is used for the 
     further generation of the language model. Default value is 10.
-    
--s OR --snippets
-    Use ONLY page snippets provided by Google search interface instead of the
-    text from the webpages. This is likely to run much faster than the default
-    mode. On the other side, you should increase the amount of results 
-    considered (e.g. 50 instead of 5). Default is False, so both snippet and 
-    page model will be built.
-    
--p OR --pages
-    Use ONLY text from the webpages instead of page snippets provided by Google 
-    search interface. Default is False, so both snippet and page model will be
-    built.
 
+-l <code> OR --lang <code>
+    Language of the result pages. Default value is "en" for English. Use 
+    2-letter language codes.
+-p <name> OR --prefix <name>
+    Prefix of the files where the corpus pages will be stocked. Default value is
+    "corpus/page"
 """
 nb_results = 10
-snippets_only = False
-pages_only = False
-prefix = "pages"
+prefix = "corpus/page"
+lang = "en"
+__counter = 1
 
 ################################################################################  
 
@@ -61,9 +55,9 @@ def treat_options( opts, arg, n_arg, usage_string ) :
         
         @param n_arg The number of arguments expected for this script.    
     """
-    global nb_results
-    global snippets_only
-    global pages_only
+    global nb_results 
+    global lang
+    global prefix
     for ( o, a ) in opts:
         if o in ("-n", "--number") : 
             try :
@@ -71,22 +65,22 @@ def treat_options( opts, arg, n_arg, usage_string ) :
             except ValueError :
                 print >> sys.stderr, "Parameter -n must be integer"
                 usage( usage_string )
-                sys.exit( -1 )
-        if o in ( "-s", "--snippets" ) :
-            snippets_only = True
-        if o in ( "-p", "--pages" ) :
-            pages_only = True
-            
-            
+                sys.exit( -1 )  
+        elif o in ("-l", "--lang") :
+            lang = a
+        elif o in ("-p", "--prefix") :
+            prefix = a    
     treat_options_simplest( opts, arg, n_arg, usage_string )
     
 ################################################################################
 
-def writefile( prefix, query, text ) :
+def writefile( prefix, lang, text ) :
     """
     """
     global nb_results
-    text_file = open( "tmp/" + prefix + "_" + str( nb_results ) + "_" + query + ".tmp", "w" )
+    global __counter
+    text_file = open( prefix + "_" + lang + "_" + str( __counter ) + ".xml" )
+    __counter = __counter + 1
     #pdb.set_trace()    
     ok = False
     while not ok :    
@@ -95,36 +89,25 @@ def writefile( prefix, query, text ) :
             ok = True
         except Exception, e :
             #print >> sys.stderr, "ERROR IN ENCODING"
-            text = text[:e[2]] + text[e[2]+2:]
-            
-            
-    
+            text = text[:e[2]] + text[e[2]+2:]    
     text_file.writelines( text_str )
-    text_file.close()      
-
+    text_file.close()
     
 ################################################################################  
 # MAIN SCRIPT
 
-longopts = [ "verbose", "number=", "snippets", "pages" ]
-arg = read_options( "vn:sp", longopts, treat_options, 1, usage_string )
+longopts = [ "verbose", "number=", "lang=" ]
+arg = read_options( "vn:l:", longopts, treat_options, 1, usage_string )
 
 try :    
     query = str( arg[ 0 ] ).strip()
     query_spaces = query.replace( "_"," " )
-    # print "Query: >>>>> " + query
-    gs = GoogleSearch()
-    if snippets_only :
-        text_snippets = gs.get_snippets( "en", query_spaces, nb_results )
-    elif pages_only :
-        text_pages = gs.get_pages( "en", query_spaces, nb_results )    
-    else :
-        (text_snippets, text_pages) = gs.get_snippets_pages( "en", query_spaces, nb_results )
+    gs = GoogleSearchUniv()
+    pages = gs.get_pages( lang, query_spaces, nb_results )
+    for page in pages :
+        writefile( prefix, lang, page.to_html() )
         
-    if text_snippets :
-        writefile( "snippets", query, text_snippets )
-    if text_pages :
-        writefile( "pages", query, text_pages )
+    
       
 except IOError, err :  
     print >> sys.stderr, err
