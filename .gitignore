@@ -1,2 +1,2 @@
 # Sets the files ignored in this project
-.pyc
+*.pyc
