@@ -33,7 +33,9 @@ OPTIONS may be:
 
 -l OR --lang
     Language of the result pages. Default value is "en" for English. Use 
-    2-letter language codes.
+    only the 2-letter language code, do not add "lang_" as a prefix. Available
+    languages are at this website :
+    http://www.google.com/cse/docs/resultsxml.html#languageCollections
     
 -p OR --prefix
     Prefix of the files where the corpus pages will be stocked. Default value is
