@@ -35,6 +35,7 @@ import xml.dom.minidom
 import datetime
 
 from googlePage import GooglePage
+from util import verbose
 
 ################################################################################         
 
