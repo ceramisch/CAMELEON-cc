@@ -70,13 +70,27 @@ class GoogleSearchUniv() :
             @return A new instance of the `GoogleSearchUniv` service abstraction
         """ 
         self.url = ('https://research.google.com/university/search/service?' +\
-                        urllib.urlencode({"rsz": "large",
-                                          "q": "QUERYPLACEHOLDER",
-                                          "lr": "LANGPLACEHOLDER",
-                                          "start" : "0",
-                                          "clid": google_id } ) )
+                        urllib.urlencode({"rsz"     : "large",
+                                          "q"       : "QUERYPLACEHOLDER",
+                                          "lr"      : "LANGPLACEHOLDER",
+                                          "start"   : "0",
+                                          "clid"    : google_id ,
+                                          "snippets": "true" } ) )
         self.post_data = {'Referer': 'https://github.com/ceramisch/CAMELEON-cc'}
             
+################################################################################  
+
+    def get_field( self, element, name ) :
+        """
+            Blah
+        """
+        nodeList = element.getElementsByTagName( name )[ 0 ].childNodes
+        rc = []
+        for node in nodelist:
+            if node.nodeType == node.TEXT_NODE:
+                rc.append(node.data)
+        return ''.join(rc)
+
 ################################################################################  
 
     def get_pages( self, lang, search_term, nb_results ):
@@ -94,11 +108,9 @@ class GoogleSearchUniv() :
                         page = GooglePage( search_term, \
                                            result_count, \
                                            lang, \
-                                           r[ 'title' ], \
-                                           self.split_sentences( r[ 'snippet' ] ), \
-                                           self.split_sentences( self.clean( self.get_text_from_html( r[ "link" ] ) ) ) )
-                        text = text + "<s> " + r[ 'title' ] + " </s>\n"
-                        text = text + "<s> " + r[ 'snippet' ] + " </s>\n"                        
+                                           self.get_field( r, "TNB" ), \
+                                           self.split_sentences( self.get_field( r, "SNB" ) ), \
+                                           self.split_sentences( self.clean( self.get_text_from_html( self.get_field( r, "U" ) ) ) ) )
                         pages.add( page )
                         result_count = result_count + 1
                     else :
