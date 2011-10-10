@@ -155,6 +155,7 @@ class GoogleSearchUniv() :
         except Exception, e :
             print >> sys.stderr, "Warning, URL " + url + " ignored"
             print >> sys.stderr, e
+            pdb.set_trace()
         return text
 
 ################################################################################    
