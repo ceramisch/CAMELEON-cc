@@ -99,14 +99,14 @@ class GoogleSearchUniv() :
         """
         """
         pages = []
-        result_count = 0
+        result_count = 0 # Counts only pages that go to the final results
+        page_count = 0 # Counts all pages processed, despite of ignored
         result_xml = self.send_query( lang, search_term )        
         result_dom = xml.dom.minidom.parseString( result_xml )
         while result_count < nb_results :
             try :
                 for r in result_dom.getElementsByTagName( 'RES' )[ 0 ].getElementsByTagName( 'R' ) :
                     if result_count < nb_results :
-                        #pdb.set_trace()
                         url = self.get_field( r, "U" )
                         title = self.get_field( r, "TNB" )
                         date = str( datetime.date.today() )
@@ -116,13 +116,15 @@ class GoogleSearchUniv() :
                             page = GooglePage( search_term, result_count, lang, \
                                                date, url, title, snippet, text )                                           
                             pages.append( page )
+                            verbose( "Downloaded page number " + str( result_count ) )
                             result_count = result_count + 1
+                        page_count = page_count + 1
                     else :
                         break
             except TypeError :
                 pdb.set_trace()
             if result_count < nb_results :
-                result_xml = self.send_query( lang, search_term )        
+                result_xml = self.send_query( lang, search_term, page_count )        
                 result_dom = xml.dom.minidom.parseString( result_xml )
         return pages
         
