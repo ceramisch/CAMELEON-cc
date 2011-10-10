@@ -28,10 +28,10 @@
 import pdb
 import urllib2
 import urllib
-import simplejson
 import re
 import html2text
 import sys
+import xml.dom.minidom
 
 from googlePage import GooglePage
 
@@ -159,8 +159,17 @@ class GoogleSearchUniv() :
         try :
             response = urllib2.urlopen( request )
             response_string = response.read()
-            results = simplejson.loads( response_string, encoding="UTF-8" )            
-            return results            
+            dom_results = xml.dom.minidom.parseString( response_string )
+            #res_elements = dom_results.getElementsByTagName( 'RES' )
+            #if len( res_elements ) == 0 :
+            #    return 0
+            #else :
+            #    res_first = res_elements[ 0 ]        
+            #total = self.gettext( res_first.getElementsByTagName( 'M' )[ 0 ] )
+            #return int( total )
+            #return results   
+            pdb.set_trace()         
+            return dom_results
         except urllib2.HTTPError, e:
             print >> sys.stderr, "Error processing query \"" + search_term + "\"\n" + url
             return None
