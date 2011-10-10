@@ -203,6 +203,6 @@ class GoogleSearchUniv() :
             
             TODO: Implement a real sentence splitter
         """
-        return [ text ]
+        return text.split( "\n" )
         
 ################################################################################        
