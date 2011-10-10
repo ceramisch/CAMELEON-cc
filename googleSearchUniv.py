@@ -88,7 +88,7 @@ class GoogleSearchUniv() :
         result_dom = xml.dom.minidom.parseString( result_xml )
         while result_count < nb_results :
             try :
-                for r in dom_results.getElementsByTagName( 'RES' )[ 0 ].getElementsByTagName( 'R' ) :
+                for r in result_dom.getElementsByTagName( 'RES' )[ 0 ].getElementsByTagName( 'R' ) :
                     if result_count < nb_results :
                         pdb.set_trace()
                         page = GooglePage( search_term, \
