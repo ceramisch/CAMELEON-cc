@@ -124,6 +124,7 @@ class GoogleSearchUniv() :
                         break
             except TypeError, e :
                 pdb.set_trace()
+                print e
             if result_count < nb_results :
                 result_xml = self.send_query( lang, search_term, page_count )        
                 result_dom = xml.dom.minidom.parseString( result_xml )
