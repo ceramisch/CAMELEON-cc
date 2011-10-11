@@ -82,15 +82,15 @@ class GooglePage() :
         page += "  <title>" + self.title + "</title>\n"
         page += "  <snippet>\n"
         for s in self.snippet :
-            try :
-                page += "    <s>" + s + "</s>\n"        
-            except UnicodeError, e :
-                pdb.set_trace()
-                print e
+            #try :
+            page += "    <s>" + s.decode('utf-8') + "</s>\n"        
+            #except UnicodeError, e :
+            #    pdb.set_trace()
+            #    print e
         page += "  </snippet>\n"
         page += "  <text>\n"
         for s in self.text :
-            page += "    <s>" + s + "</s>\n"
+            page += "    <s>" + s .decode('utf-8') + "</s>\n"
         page += "  </text>\n"
         page += "</page>\n"
-        return page
+        return page.encode('utf-8','ignore')
