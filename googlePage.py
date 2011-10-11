@@ -31,7 +31,7 @@ class GooglePage() :
 
 ################################################################################
 
-    def __init__( self, keywords, position, lang, date, url, title, snippet, text ) :
+    def __init__( self, keywords, position, lang, title, snippet, text ) :
         """
             Instanciates a new GooglePage.
             
@@ -41,10 +41,6 @@ class GooglePage() :
             @param position Index of this page in the result list.
             
             @param lang Language used in the request.
-            
-            @param date The date in which the website was retrieved.
-            
-            @param url The address of the website.            
             
             @param title Title of the website.
             
@@ -57,8 +53,6 @@ class GooglePage() :
         self.keywords    = keywords
         self.position = position
         self.lang     = lang
-        self.date     = date
-        self.url      = url
         self.title    = title
         self.snippet  = snippet # list of string sentences
         self.text     = text # list of string sentences    
@@ -74,17 +68,15 @@ class GooglePage() :
         page += "<page>\n"
         page += "  <query keywords=\"" + self.keywords + \
                       "\" position=\"" + str( self.position ) + \
-                      "\" lang=\""     + self.lang + \
-                      "\" date=\""     + self.date + "\"/>\n"
-        page += "  <url>" + self.url + "</url>\n"
+                      "\" lang=\""     + self.lang + "\"/>\n"
         page += "  <title>" + self.title + "</title>\n"
         page += "  <snippet>\n"
         for s in self.snippet :
-            page += "    <s>" + s + "</s>\n"        
+            page += "    <s>" + s.encode('utf-8') + "</s>\n"        
         page += "  </snippet>\n"
         page += "  <text>\n"
         for s in self.text :
-            page += "    <s>" + s + "</s>\n"
+            page += "    <s>" + s.encode('utf-8') + "</s>\n"
         page += "  </text>\n"
         page += "</page>\n"
         return page
