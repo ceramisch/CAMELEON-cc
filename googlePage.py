@@ -25,6 +25,8 @@
     represented are: language, query, position, title, snippet and text.
 """
 
+import pdb
+
 ################################################################################
 
 class GooglePage() :
