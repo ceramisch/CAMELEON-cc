@@ -95,12 +95,12 @@ def writefile( prefix, lang, query, text ) :
     global nb_results
     global __counter
     folder_name = prefix + "/" + lang + "/"
-    file_name = query + "_" + str( __counter ) + ".xml"
+    file_name = "%(q)s_%(c)05d.xml" % { "q":query, "c":__counter }
     os.system( "mkdir -p " + folder_name )
     text_file = open( folder_name + file_name, "w" )
     __counter = __counter + 1
     #pdb.set_trace()    
-    text_file.writelines( [ text.encode( 'utf-8' ) ] )
+    text_file.writelines( [ text ] )
     text_file.close()
     
 ################################################################################  
