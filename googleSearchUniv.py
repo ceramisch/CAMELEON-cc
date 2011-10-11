@@ -122,7 +122,7 @@ class GoogleSearchUniv() :
                         page_count = page_count + 1
                     else :
                         break
-            except TypeError :
+            except TypeError, e :
                 pdb.set_trace()
             if result_count < nb_results :
                 result_xml = self.send_query( lang, search_term, page_count )        
