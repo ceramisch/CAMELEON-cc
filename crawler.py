@@ -100,7 +100,7 @@ def writefile( prefix, lang, query, text ) :
     text_file = open( folder_name + file_name, "w" )
     __counter = __counter + 1
     #pdb.set_trace()    
-    text_file.writelines( [ text ] )
+    text_file.writelines( [ text.encode( 'utf-8' ) ] )
     text_file.close()
     
 ################################################################################  
