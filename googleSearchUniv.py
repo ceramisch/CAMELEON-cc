@@ -74,8 +74,8 @@ class GoogleSearchUniv() :
         self.url = ('https://research.google.com/university/search/service?' +\
                         urllib.urlencode({"rsz"     : "large",
                                           "q"       : "QUERYPLACEHOLDER",
-                                          "lr"      : "LANGPLACEHOLDER",
-                                          "start"   : "0",
+                                          "lr"      : "lang_LANGPLACEHOLDER",
+                                          "start"   : "STARTPLACEHOLDER",
                                           "clid"    : google_id ,
                                           "snippets": "true" } ) )
         self.post_data = {'Referer': 'https://github.com/ceramisch/CAMELEON-cc'}
@@ -104,13 +104,16 @@ class GoogleSearchUniv() :
         page_count = 0 # Counts all pages processed, despite of ignored
         result_xml = self.send_query( lang, search_term )        
         result_dom = xml.dom.minidom.parseString( result_xml )
+	res_element = result_dom.getElementsByTagName( "RES" )[ 0 ]
+        total = int( self.get_field( res_element, "M" ) )
+        verbose( "The query "+search_term+" returned "+str(total)+" results.")
         while result_count < nb_results :
             try :
-                for r in result_dom.getElementsByTagName( 'RES' )[ 0 ].getElementsByTagName( 'R' ) :
+                for r in res_element.getElementsByTagName( 'R' ) :
                     if result_count < nb_results :
-                        url = self.get_field( r, "U" )
+                        url = self.get_field( r, "UE" )			
                         title = self.get_field( r, "TNB" )
-                        date = str( datetime.date.today() )
+                        date = str( datetime.date.today() )                   
                         snippet = self.split_sentences( self.clean( self.get_field( r, "SNB" ) ) )
                         text = self.split_sentences( self.clean( self.get_text_from_html( self.get_field( r, "U" ) ) ) )
                         if len(text) > 1 :
@@ -126,8 +129,10 @@ class GoogleSearchUniv() :
                 pdb.set_trace()
                 print e
             if result_count < nb_results :
-                result_xml = self.send_query( lang, search_term, page_count )        
+		print page_count
+                result_xml = self.send_query( lang, search_term, page_count )
                 result_dom = xml.dom.minidom.parseString( result_xml )
+	        res_element = result_dom.getElementsByTagName( "RES" )[ 0 ]
         return pages
         
 ################################################################################          
@@ -156,10 +161,11 @@ class GoogleSearchUniv() :
                 line = line.strip()
                 if len( line.split( " " ) ) > self.MIN_WORDS :
                     text = text + line + "\n"
+                #print "BEGIN" + text.strip() + "END"
         except Exception, e :
             print >> sys.stderr, "Warning, URL " + url + " ignored"
             print >> sys.stderr, e
-        return text
+        return text.strip().decode('utf-8','ignore')
 
 ################################################################################    
 
@@ -171,15 +177,15 @@ class GoogleSearchUniv() :
         clean_text = re.sub( "</?b>", "", clean_text )
         clean_text = re.sub( "\&[^;];", " ", clean_text )
         clean_text = re.sub( "  *", " ", clean_text )        
-        ok = False
-        while not ok :    
-            try :
-                out_text = clean_text.encode('utf-8', 'ignore')
-                ok = True
-            except Exception, e :
+#        ok = False
+#        while not ok :    
+#            try :
+#                out_text = clean_text.encode('utf-8', 'ignore')
+#                ok = True
+#            except Exception, e :
                 #print >> sys.stderr, "ERROR IN ENCODING"
-                clean_text = clean_text[:e[2]] + clean_text[e[2]+2:]    
-        return out_text
+#                clean_text = clean_text[:e[2]] + clean_text[e[2]+2:]    
+        return clean_text
 
 ################################################################################  
 
@@ -191,6 +197,7 @@ class GoogleSearchUniv() :
         url = url.replace( "QUERYPLACEHOLDER", urllib.quote_plus( search_term ))
         url = url.replace( "STARTPLACEHOLDER", str( start + 1 ) )
         request = urllib2.Request( url, None, self.post_data )
+	#pdb.set_trace()
         try :
             response = urllib2.urlopen( request )
             return response.read()

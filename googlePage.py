@@ -71,6 +71,10 @@ class GooglePage() :
         """
             Returns a string containing an HTML version of the page.
         """
+        #print type(self.url)
+        #print type(self.title)
+        #print type(self.snippet[0])
+        #print type(self.text[0])
         page = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
         page += "<!DOCTYPE page SYSTEM \"page.dtd\">\n"
         page += "<page>\n"
@@ -78,19 +82,20 @@ class GooglePage() :
                       "\" position=\"" + str( self.position ) + \
                       "\" lang=\""     + self.lang + \
                       "\" date=\""     + self.date + "\"/>\n"
-        page += "  <url>" + self.url + "</url>\n"
-        page += "  <title>" + self.title + "</title>\n"
+        page += "  <url>" + self.url.encode('utf-8') + "</url>\n"
+        page += "  <title>" + self.title.encode('utf-8') + "</title>\n"
         page += "  <snippet>\n"
         for s in self.snippet :
             #try :
-            page += "    <s>" + s.decode('utf-8') + "</s>\n"        
+            page += "    <s>" + s.encode('utf-8','ignore') + "</s>\n"        
             #except UnicodeError, e :
             #    pdb.set_trace()
             #    print e
         page += "  </snippet>\n"
         page += "  <text>\n"
         for s in self.text :
-            page += "    <s>" + s .decode('utf-8') + "</s>\n"
+            page += "    <s>" + s.encode('utf-8','ignore') + "</s>\n"
         page += "  </text>\n"
         page += "</page>\n"
-        return page.encode('utf-8','ignore')
+
+        return page
