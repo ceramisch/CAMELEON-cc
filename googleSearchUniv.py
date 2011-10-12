@@ -104,14 +104,14 @@ class GoogleSearchUniv() :
         page_count = 0 # Counts all pages processed, despite of ignored
         result_xml = self.send_query( lang, search_term )        
         result_dom = xml.dom.minidom.parseString( result_xml )
-	res_element = result_dom.getElementsByTagName( "RES" )[ 0 ]
+        res_element = result_dom.getElementsByTagName( "RES" )[ 0 ]
         total = int( self.get_field( res_element, "M" ) )
         verbose( "The query "+search_term+" returned "+str(total)+" results.")
         while result_count < nb_results :
             try :
                 for r in res_element.getElementsByTagName( 'R' ) :
                     if result_count < nb_results :
-                        url = self.get_field( r, "UE" )			
+                        url = self.get_field( r, "UE" )
                         title = self.get_field( r, "TNB" )
                         date = str( datetime.date.today() )                   
                         snippet = self.split_sentences( self.clean( self.get_field( r, "SNB" ) ) )
@@ -129,10 +129,9 @@ class GoogleSearchUniv() :
                 pdb.set_trace()
                 print e
             if result_count < nb_results :
-		print page_count
                 result_xml = self.send_query( lang, search_term, page_count )
                 result_dom = xml.dom.minidom.parseString( result_xml )
-	        res_element = result_dom.getElementsByTagName( "RES" )[ 0 ]
+                res_element = result_dom.getElementsByTagName( "RES" )[ 0 ]
         return pages
         
 ################################################################################          
@@ -161,7 +160,6 @@ class GoogleSearchUniv() :
                 line = line.strip()
                 if len( line.split( " " ) ) > self.MIN_WORDS :
                     text = text + line + "\n"
-                #print "BEGIN" + text.strip() + "END"
         except Exception, e :
             print >> sys.stderr, "Warning, URL " + url + " ignored"
             print >> sys.stderr, e
@@ -189,15 +187,20 @@ class GoogleSearchUniv() :
 
 ################################################################################  
 
+    def send_query_test( self, lang, search_term, start=0 ) :
+        """
+        """
+        return u"""<?xml version="1.0" encoding="utf-8"?><GSP xmlns="http://research.google.com/university/search"><Q>conference call for papers</Q><PARAM value="3" name="num"/><PARAM value="0" name="start"/><RES EN="3" SN="1"><M>21200000</M><R N="1"><U>http://www.wikicfp.com/</U><UE>http://www.wikicfp.com/</UE><T>WikiCFP : &lt;b&gt;Call For Papers&lt;/b&gt; of &lt;b&gt;Conferences&lt;/b&gt;, Workshops and Journals</T><TNB>WikiCFP : Call For Papers of Conferences, Workshops and Journals</TNB><S>A Wiki website of Calls For &lt;b&gt;Papers&lt;/b&gt; (CFP) of international &lt;b&gt;conferences&lt;/b&gt;, workshops&lt;br&gt;  , meetings, seminars, events, journals and book chapters in computer science, &lt;b&gt;...&lt;/b&gt;</S><SNB>A Wiki website of Calls For Papers (CFP) of international conferences, workshops  , meetings, seminars, events, journals and book chapters in computer science, ...</SNB><LANG>en</LANG></R><R N="2"><U>http://www.ieee.org/web/conferences/callforpapers/</U><UE>http://www.ieee.org/web/conferences/callforpapers/</UE><T>&lt;b&gt;Call for Papers&lt;/b&gt; - IEEE - Browse &lt;b&gt;Call for Papers&lt;/b&gt; Deadlines</T><TNB>Call for Papers - IEEE - Browse Call for Papers Deadlines</TNB><S>Listing of Calls for &lt;b&gt;Papers&lt;/b&gt; deadlines for IEEE-sponsored &lt;b&gt;conferences&lt;/b&gt;.</S><SNB>Listing of Calls for Papers deadlines for IEEE-sponsored conferences.</SNB><LANG>en</LANG></R><R N="3"><U>http://cfp.english.upenn.edu/</U><UE>http://cfp.english.upenn.edu/</UE><T>Calls for &lt;b&gt;Papers&lt;/b&gt; | cfp.english.upenn.edu</T><TNB>Calls for Papers | cfp.english.upenn.edu</TNB><S>http://&lt;b&gt;call-for-papers&lt;/b&gt;.sas.upenn.edu/submit &lt;b&gt;...&lt;/b&gt; The &lt;b&gt;Call for Papers&lt;/b&gt; website is &lt;br&gt;  provided by the Department of English at the University of Pennsylvania as a &lt;b&gt;...&lt;/b&gt;</S><SNB>http://call-for-papers.sas.upenn.edu/submit ... The Call for Papers website is   provided by the Department of English at the University of Pennsylvania as a ...</SNB><LANG>en</LANG></R></RES></GSP>"""
+
+################################################################################  
+
     def send_query( self, lang, search_term, start=0 ) :
         """
         """
-        #pdb.set_trace()
         url = self.url.replace( "LANGPLACEHOLDER",lang )
         url = url.replace( "QUERYPLACEHOLDER", urllib.quote_plus( search_term ))
         url = url.replace( "STARTPLACEHOLDER", str( start + 1 ) )
         request = urllib2.Request( url, None, self.post_data )
-	#pdb.set_trace()
         try :
             response = urllib2.urlopen( request )
             return response.read()
