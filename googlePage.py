@@ -78,10 +78,11 @@ class GooglePage() :
         page = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
         page += "<!DOCTYPE page SYSTEM \"page.dtd\">\n"
         page += "<page>\n"
-        page += "  <query keywords=\"" + self.keywords + \
-                      "\" position=\"" + str( self.position ) + \
-                      "\" lang=\""     + self.lang + \
-                      "\" date=\""     + self.date + "\"/>\n"
+        #page += "  <query keywords=\"" + self.keywords + \
+        #              "\" position=\"" + str( self.position ) + \
+        #              "\" lang=\""     + self.lang + \
+        #              "\" date=\""     + self.date + "\"/>\n"
+        page += "  <lang>" + self.lang + "</lang>"
         page += "  <url>" + self.url.encode('utf-8') + "</url>\n"
         page += "  <title>" + self.title.encode('utf-8') + "</title>\n"
         page += "  <snippet>\n"
@@ -99,3 +100,14 @@ class GooglePage() :
         page += "</page>\n"
 
         return page
+        
+################################################################################
+
+    def get_metadata( self ) :
+        """
+            Returns a string containing metadata about how this page was 
+            retrieved. The information is in the following format:
+            url date keywords position
+        """
+        return self.url.encode( 'utf-8' ) + " " + self.date + " " + \
+               self.keywords.replace( " ", "_" ) + " " + str( self.position ) + "\n"

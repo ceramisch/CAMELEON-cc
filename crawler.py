@@ -89,19 +89,29 @@ def treat_options( opts, arg, n_arg, usage_string ) :
     
 ################################################################################
 
-def writefile( prefix, lang, query, text ) :
+def filenamize( url ) :
+    """
+    """
+    return url.replace("/","-").replace(":","-").replace("?","-").replace("&","-")
+
+################################################################################
+
+def writefile( prefix, lang, query, text, metadata, url ) :
     """
     """
     global nb_results
     global __counter
     folder_name = prefix + "/" + lang + "/"
-    file_name = "%(q)s_%(c)05d.xml" % { "q":query, "c":__counter }
+    file_name = "%(u)s.xml" % { "u":filenamize(url) }
     os.system( "mkdir -p " + folder_name )
     text_file = open( folder_name + file_name, "w" )
     __counter = __counter + 1
     #pdb.set_trace()    
     text_file.writelines( [ text ] )
     text_file.close()
+    log_file = open( folder_name + "log.txt", "a" )
+    log_file.writelines( [ metadata ] )
+    log_file.close()
     
 ################################################################################  
 # MAIN SCRIPT
@@ -113,9 +123,9 @@ try :
     query = str( arg[ 0 ] ).strip()
     query_spaces = query.replace( "_"," " )
     gs = GoogleSearchUniv( key )
-    pages = gs.get_pages( lang, query_spaces, nb_results )
+    pages = gs.get_pages( lang, query_spaces, nb_results ) 
     for page in pages :
-        writefile( prefix, lang, query, page.to_html() )
+        writefile( prefix, lang, query, page.to_html(), page.get_metadata(), page.url )
         
     
       
