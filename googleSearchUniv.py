@@ -111,8 +111,8 @@ class GoogleSearchUniv() :
         ending = int(res_element.getAttribute("EN"))
         total = int( self.get_field( res_element, "M" ) )
         verbose( "The query "+search_term+" returned "+str(total)+" results.")
-        pdb.set_trace()
-        while result_count < nb_results and page_count < ending:
+        #pdb.set_trace()
+        while result_count < nb_results and page_count < ending :
             try :
                 for r in res_element.getElementsByTagName( 'R' ) :
                     if result_count < nb_results and page_count < ending :
