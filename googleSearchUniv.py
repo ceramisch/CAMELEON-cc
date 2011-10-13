@@ -87,12 +87,15 @@ class GoogleSearchUniv() :
         """
             Blah
         """
-        nodelist = element.getElementsByTagName( name )[ 0 ].childNodes
-        rc = []
-        for node in nodelist:
-            if node.nodeType == node.TEXT_NODE:
-                rc.append(node.data)
-        return ''.join(rc)
+        try :
+            nodelist = element.getElementsByTagName( name )[ 0 ].childNodes
+            rc = []
+            for node in nodelist:
+                if node.nodeType == node.TEXT_NODE:
+                    rc.append(node.data)
+            return ''.join(rc)
+        except IndexError, e :
+            return "" # Empty result if element not present
 
 ################################################################################  
 
@@ -102,36 +105,42 @@ class GoogleSearchUniv() :
         pages = []
         result_count = 0 # Counts only pages that go to the final results
         page_count = 0 # Counts all pages processed, despite of ignored
-        result_xml = self.send_query( lang, search_term )        
+        result_xml = self.send_query( lang, search_term )
         result_dom = xml.dom.minidom.parseString( result_xml )
         res_element = result_dom.getElementsByTagName( "RES" )[ 0 ]
+        ending = int(res_element.getAttribute("EN"))
         total = int( self.get_field( res_element, "M" ) )
         verbose( "The query "+search_term+" returned "+str(total)+" results.")
-        while result_count < nb_results :
+        pdb.set_trace()
+        while result_count < nb_results and page_count < ending:
             try :
                 for r in res_element.getElementsByTagName( 'R' ) :
-                    if result_count < nb_results :
+                    if result_count < nb_results and page_count < ending :
                         url = self.get_field( r, "UE" )
                         title = self.get_field( r, "TNB" )
                         date = str( datetime.date.today() )                   
                         snippet = self.split_sentences( self.clean( self.get_field( r, "SNB" ) ) )
                         text = self.split_sentences( self.clean( self.get_text_from_html( self.get_field( r, "U" ) ) ) )
                         if len(text) > 1 :
-                            page = GooglePage( search_term, result_count, lang, \
-                                               date, url, title, snippet, text )                                           
+                            page = GooglePage( search_term, result_count, lang,\
+                                               date, url, title, snippet, text,\
+                                               total )                   
                             pages.append( page )
                             verbose( "Downloaded page number " + str( result_count ) )
                             result_count = result_count + 1
                         page_count = page_count + 1
                     else :
                         break
-            except TypeError, e :
+            except Exception, e :
                 pdb.set_trace()
                 print e
-            if result_count < nb_results :
+            if result_count < nb_results and ending % 20 == 0:
                 result_xml = self.send_query( lang, search_term, page_count )
                 result_dom = xml.dom.minidom.parseString( result_xml )
                 res_element = result_dom.getElementsByTagName( "RES" )[ 0 ]
+                ending = int(res_element.getAttribute("EN"))
+        if nb_results > ending :
+            print >> sys.stderr, "WARNING: fewer available results than requested pages. Retrieved %(rc)d from %(nr)d asked"%{"rc":result_count,"nr":nb_results}
         return pages
         
 ################################################################################          
@@ -199,7 +208,7 @@ class GoogleSearchUniv() :
         """
         url = self.url.replace( "LANGPLACEHOLDER",lang )
         url = url.replace( "QUERYPLACEHOLDER", urllib.quote_plus( search_term ))
-        url = url.replace( "STARTPLACEHOLDER", str( start + 1 ) )
+        url = url.replace( "STARTPLACEHOLDER", str( start ) )
         request = urllib2.Request( url, None, self.post_data )
         try :
             response = urllib2.urlopen( request )

@@ -22,7 +22,8 @@
 """
     This module provides the `GooglePage` class. This class represents an 
     abstract web page downloaded by the GoogleSearchUniv class. The attributes 
-    represented are: language, query, position, title, snippet and text.
+    represented are: keywords, position, language, date, url, title, snippet,
+    text and total results.
 """
 
 import pdb
@@ -33,7 +34,8 @@ class GooglePage() :
 
 ################################################################################
 
-    def __init__( self, keywords, position, lang, date, url, title, snippet, text ) :
+    def __init__( self, keywords, position, lang, date, url, title, snippet, \
+                  text, total ) :
         """
             Instanciates a new GooglePage.
             
@@ -55,6 +57,9 @@ class GooglePage() :
             
             @param text The text extracted from the website. Contains a list of 
             string sentences.
+
+            @param total The approximate total number of resutls returned by
+            Google for this query.
         """
         self.keywords    = keywords
         self.position = position
@@ -64,6 +69,7 @@ class GooglePage() :
         self.title    = title
         self.snippet  = snippet # list of string sentences
         self.text     = text # list of string sentences    
+        self.total    = total
     
 ################################################################################
 
@@ -107,7 +113,21 @@ class GooglePage() :
         """
             Returns a string containing metadata about how this page was 
             retrieved. The information is in the following format:
-            url date keywords position
+            url date keywords position lang total
+
+            url: The URL address of the page retrieved and downloaded
+            date: The date when this page was retrieved and downloaded
+            keywords: The keywords of the query sent to Google
+            position: The position in which this page was retrieved in Google
+            lang: The language used as filter in Google request
+            total: The approximate number of results returned by Google query
+            
+            @return A line containing the fields described above separated by
+            spaces and terminated by carriage return
         """
+
+        
         return self.url.encode( 'utf-8' ) + " " + self.date + " " + \
-               self.keywords.replace( " ", "_" ) + " " + str( self.position ) + "\n"
+               self.keywords.replace( " ", "_" ) + " " + \
+               str( self.position ) + " " + self.lang + " " + \
+               str( self.total ) + "\n"
