@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE page SYSTEM "page.dtd">
+<page>
+  <lang>en</lang>  <url>http://computationalcomplexity.org/cfp.html</url>
+  <title>Conference on Computational Complexity: Call For Papers</title>
+  <snippet>
+    <s>The conference seeks original research papers in all areas of computational complexity theory, studying the absolute and relative power of computational </s>
+  </snippet>
+  <text>
+    <s>CCC 2012: Call for Papers</s>
+    <s>Submission Deadline: Thursday, December 8, 2011, 19:59 EST</s>
+    <s>Purpose and Scope</s>
+    <s>The conference seeks original research papers in all areas of computational complexity theory, studying the absolute and relative power of computational models under resource constraints. We also encourage results from other areas of computer science and mathematics motivated by topics in complexity theory. The following list of possible topics is not exhaustive:</s>
+    <s>Complexity classes</s>
+    <s>Algebraic complexity</s>
+    <s>Proof complexity</s>
+    <s>Interactive and probabilistic proof systems</s>
+    <s>Circuit complexity</s>
+    <s>Kolmogorov complexity</s>
+    <s>Logic and descriptive complexity</s>
+    <s>Average case complexity</s>
+    <s>Reducibility and completeness</s>
+    <s>Communication complexity</s>
+    <s>Complexity in other concrete computational models</s>
+    <s>Cryptographic complexity</s>
+    <s>Complexity of optimization, including inapproximability</s>
+    <s>Complexity and learning</s>
+    <s>Complexity and coding theory</s>
+    <s>Pseudorandomness and derandomization</s>
+    <s>Complexity and sub-linear computation</s>
+    <s>Quantum computation</s>
+    <s>Conference Location and Dates</s>
+    <s>The 2012 conference will be held from June 26th to June 29th, 2012, in Porto, Portugal, and is organized in association with the 2012 Alan Turing Year. In order to defray the costs of attending an overseas conference, some travel awards are available for students from US institutions. More information about travel and local arrangements will be made available on the conference webpage in due time.</s>
+    <s>The conference is sponsored by the IEEE Computer Society Technical Committee for Mathematical Foundations of Computing in cooperation with the ACM Special Interest Group on Algorithms and Computation Theory (SIGACT) and the European Association of Theoretical Computer Science (EATCS). The National Science Foundation (NSF) provides student travel support through award CCF-1143914.</s>
+    <s>Papers must be submitted electronically, and received by December 8th, 2011, 19:59 EST, for consideration. The submission server will be active a few weeks before the submission deadline. Notification of acceptance will be sent by February 17th, 2012, and final camera-ready copies of accepted papers will be due around mid-March 2012.</s>
+    <s>Submission format: A submission should consist of a title page (containing the title, author names and affiliations, and an abstract of 1-2 paragraphs summarizing the paper's contributions), a body of no more than 10 pages, a bibliography, and possible appendices. The paper should be in single-column format, use at least 11-point font, and have standard margins and spacing between lines. Submissions deviating from these guidelines risk summary rejection without consideration of their merits.</s>
+    <s>The body of the paper should (i) explain what the major contributions are, (ii) convey why they are interesting, (iii) discuss how they relate to prior work, and (iv) present the main ideas behind them. Authors are expected to include all ideas necessary for an expert to fully verify the central claims in the paper , and may use appendices to substantiate technical claims as needed. The appendices will be read at the discretion of the Program Committee. (Authors may, if they prefer, simply attach a copy of the full paper as the appendix.)</s>
+    <s>All submissions will be treated as confidential, and will only be disclosed to the committee and their chosen sub-referees. The instructions for the format of final copies will be communicated to the authors of accepted papers.</s>
+    <s>Simultaneous submission policy: Material which has been previously published in a journal or another conference proceedings, or which is scheduled for publication prior to July, 2012, will not be considered for acceptance. Simultaneous submission of the same or essentially the same material to another conference with published proceedings is not allowed.</s>
+    <s>Online posting: Authors are encouraged to post full versions of their submissions in a freely accessible on-line repository such as the Electronic Colloquium on Computational Complexity or the arXiv. It is hoped that authors of accepted papers will make full versions of their papers, with proofs, available by the camera-ready deadline. (This should be done in a manner consistent with the IEEE Copyright Policy.)</s>
+    <s>Presenting the work: Authors of accepted papers are expected to present their work at the conference. The program committee will determine time allocations for presentations (between 15 and 45 minutes). Conference proceedings will be published by the IEEE Computer Society. Publication in the conference proceedings does not preclude subsequent journal publication.</s>
+    <s>Ronald V. Book Prize for Best Student Paper: This award will be given to the best paper written solely by one or more students. An abstract is eligible if all authors are full-time students at the time of submission. This should be indicated in the submission registration message or cover letter. The program committee may decline to make the award or may split it among several papers.</s>
+    <s>Best Paper Award: This award will be given to the best paper submitted to the conference. This will be awarded by the program committee. The program committee may decline to make the award or may split it among several papers.</s>
+    <s>Program Committee</s>
+    <s>Eric Allender, Rutgers University</s>
+    <s>Boaz Barak, Microsoft Research New England</s>
+    <s>Irit Dinur, Weizmann Institute</s>
+    <s>Nicola Galesi, University of Rome &quot;La Sapienza&quot;</s>
+    <s>Venkatesan Guruswami (chair), Carnegie Mellon University</s>
+    <s>Neeraj Kayal, Microsoft Research India</s>
+    <s>Julia Kempe, Univ. of Paris 7 and Tel Aviv University</s>
+    <s>Hartmut Klauck, Nanyang Technological University</s>
+    <s>Rahul Santhanam, University of Edinburgh</s>
+    <s>Rocco Servedio, Columbia University</s>
+    <s>Amir Yehudayoff, Technion</s>
+    <s>Local Arrangement Chair: Luis Antunes (Porto University)</s>
+    <s>Publicity Chair: Richard Beigel (Temple University)</s>
+    <s>Conference website: computationalcomplexity.org</s>
+    <s>If you have any questions, please e-mail Richard Beigel, the publicity chair.</s>
+  </text>
+</page>

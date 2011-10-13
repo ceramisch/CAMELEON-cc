@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE page SYSTEM "page.dtd">
+<page>
+  <lang>pt</lang>  <url>http://pgbr.postgresql.org.br/2011/chamada.php</url>
+  <title>chamada de trabalhos</title>
+  <snippet>
+    <s>conferência PostgreSQL brasileira. Conferência PostgreSQL Brasil Brazilian PostgreSQL Conference Conferencia Chamada de trabalhos encerrada </s>
+  </snippet>
+  <text>
+    <s>Conferência PostgreSQL</s>
+    <s>3-4 de Novembro de 2011</s>
+    <s>São Paulo, SP</s>
+    <s>PGBR 2011</s>
+    <s>Sobre o Evento</s>
+    <s>Datas Importantes</s>
+    <s>Seja Patrocinador</s>
+    <s>Chamada de Trabalhos</s>
+    <s>Edições Anteriores</s>
+    <s>Chamada de Trabalhos</s>
+    <s>Chamada de trabalhos encerrada</s>
+    <s>Você deve escolher um dentre 4 formatos possíveis de apresentações:</s>
+    <s>Palestras regulares são destinadas ao público com conhecimento básico e/ou intermediário em relação aos temas que serão apresentados e terão duração de 50 minutos incluindo o tempo para perguntas;</s>
+    <s>Tutoriais terão duração de 110 minutos incluindo o tempo para perguntas. Espera-se que no formato de tutorial, o palestrante faça demonstrações práticas e não apenas uma palestra mais longa;</s>
+    <s>Palestras avançadas (Hacker Talks) são destinadas ao público que já utiliza o PostgreSQL e deseja abordar tópicos mais complexos. Temas que envolvam a comunidade nacional ou internacional também podem entrar nessa categoria. Elas podem ter duração entre 30 e 120 minutos incluindo o tempo para perguntas. Espera-se maior interação com o público nesse tipo de palestra e é permitido que palestrantes internacionais palestrem em inglês ou espanhol sem o uso de tradutores;</s>
+    <s>Painéis acadêmicos são destinados aos estudantes de graduação e pós-graduação que desenvolvam pesquisas e trabalhos com PostgreSQL. Os painéis serão exibidos no salão de exposições e utilizarão regras específicas descritas abaixo.</s>
+    <s>Regras para Painel Acadêmico</s>
+    <s>1. Dimensões</s>
+    <s>Largura: 90cm;</s>
+    <s>Altura: 90cm até o máximo de 120cm.</s>
+    <s>2. Clareza e apresentação</s>
+    <s>O texto do pôster deverá ser legível a uma distância de pelo menos 2 metros;</s>
+    <s>Utilizar os vários recursos gráficos disponíveis para despertar o interesse do público;</s>
+    <s>Não é obrigatória a impressão em plotter, mas o pôster deve possuir características de um cartaz;</s>
+    <s>Organizar as informações de modo que as ideias centrais do trabalho sejam facilmente compreendidas;</s>
+    <s>Utilizar o mínimo de texto e o máximo de figuras, fotos, tabelas e gráficos possíveis.</s>
+    <s>3. No pôster deverá constar:</s>
+    <s>O logotipo oficial do PGBR 2011;</s>
+    <s>Título idêntico ao da proposta submetida;</s>
+    <s>Nomes, instituições dos autores, email para contato, cidade e estado;</s>
+    <s>No corpo do pôster o autor ficará livre para organizar as informações pertinentes, observando as recomendações do item 2. Se preferir, os autores poderão optar pela seguinte estrutura: Introdução, Metodologia, Resultados e Conclusões.</s>
+    <s>4. Data e horário da apresentação</s>
+    <s>Cada trabalho será programado para apresentação em um único dia. Os autores deverão consultar a programação no site.</s>
+    <s>5. É proibida a apresentação:</s>
+    <s>Por não-autores (terceiros);</s>
+    <s>Oral ou performática;</s>
+    <s>Com retroprojetor, computador, microfone e/ou outros equipamentos elétricos;</s>
+    <s>Com aparelhos e instrumentos sonoros que interfiram na comunicação dos autores da sessão.</s>
+    <s>6. Pelo menos um dos autores do trabalho deverá permanecer junto ao pôster, para responder às perguntas dos interessados;</s>
+    <s>7. No final da sessão será entregue no local de cada pôster o atestado de apresentação;</s>
+    <s>8. Os painéis terão um gancho para pendurar os pôsteres com cordão. Se os autores precisarem fixar o pôster com fita adesiva deverão levar este material.</s>
+    <s>10/08/2011 - Publicação da chamada de trabalhos;</s>
+    <s>09/09/2011 - Data limite para envio de propostas;</s>
+    <s>16/09/2011 - Data limite para avaliação das palestras;</s>
+    <s>23/09/2011 - Publicação do resultado;</s>
+    <s>31/10/2011 - Última data para envio do rascunho das apresentações.</s>
+    <s>copyright (C) 2011 PostgreSQL Brasil</s>
+  </text>
+</page>

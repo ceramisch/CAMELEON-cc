@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE page SYSTEM "page.dtd">
+<page>
+  <lang>en</lang>  <url>http://www.asianpa.org/conference-call-for-papers</url>
+  <title>2012 Conference: Call for papers</title>
+  <snippet>
+    <s>2012 Conference: Call for papers. PDF Print E-mail. 2nd_Asian_Population_Association_Conference_2012. Paper Submission - click here. (Deadline: 15 </s>
+  </snippet>
+  <text>
+    <s>Asian Population Association</s>
+    <s>News :</s>
+    <s>&quot;); return true; } } // Ticker main run loop function runTheTicker() { var myTimeout; // Go for the next story data block if(theCurrentLength == 0) { theCurrentStory++; theCurrentStory = theCurrentStory % theItemCount; theStorySummary = theSummariestheCurrentStory; theTargetLink = theSiteLinkstheCurrentStory; } var textTitle = theStorySummary.substring(0,theCurrentLength) + whatWidget(); if (theTargetLink ) { if (NS6) { document.getElementById(&quot;theTicker&quot;).innerHTML = ''+textTitle+''; } else { document.all.theTicker.innerHTML = ''+textTitle+''; } } else { if (NS6) { document.getElementById(&quot;theTicker&quot;).innerHTML = ''+textTitle+''; } else { document.all.theTicker.innerHTML = ''+textTitle+''; } } // Modify the length for the substring and define the timer if(theCurrentLength != theStorySummary.length) { theCurrentLength++; myTimeout = theCharacterTimeout; } else { theCurrentLength = 0; myTimeout = theStoryTimeout; } // Call up the next cycle of the ticker setTimeout(&quot;runTheTicker()&quot;, myTimeout); } // Widget generator function whatWidget() { if(theCurrentLength == theStorySummary.length) { return theWidgetNone; } if((theCurrentLength % 2) == 1) { return theWidgetOne; } else { return theWidgetTwo; } } startTicker(); var flashvars = {}; flashvars.xml = &quot;http://www.asianpa.org/media/mod vinaora cu3er/config/V72 20110911 142811.xml&quot;; flashvars.font = &quot;&quot;; var attributes = {}; attributes.wmode = &quot;transparent&quot;; attributes.id = &quot;slider72&quot;; swfobject.embedSWF(&quot;http://www.asianpa.org/media/mod vinaora cu3er/flash/cu3er.swf&quot;, &quot;vinaora-3d-slideshow72&quot;, &quot;955&quot;, &quot;239&quot;, &quot;9&quot;, &quot;http://www.asianpa.org/media/mod vinaora cu3er/js/swfobject/expressInstall.swf&quot;, flashvars, attributes);</s>
+  </text>
+</page>

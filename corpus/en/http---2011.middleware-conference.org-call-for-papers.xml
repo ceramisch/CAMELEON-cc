@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE page SYSTEM "page.dtd">
+<page>
+  <lang>en</lang>  <url>http://2011.middleware-conference.org/call-for-papers</url>
+  <title>Call for Papers ... - Middleware 2011 - Middleware Conference</title>
+  <snippet>
+    <s>Call for Papers. ACM/IFIP/USENIX 12th International Middleware Conference 12 - 16 December 2011 - Lisbon, Portugal http://2011.middleware-conference.org </s>
+  </snippet>
+  <text>
+    <s>Personal tools</s>
+    <s>Log in</s>
+    <s>Skip to content. | Skip to navigation</s>
+    <s>Call for Papers</s>
+    <s>ACM/IFIP/USENIX 12th International Middleware Conference</s>
+    <s>12 - 16 December 2011 - Lisbon, Portugal</s>
+    <s>Download PDF version here</s>
+    <s>The Middleware conference is a forum for the discussion of innovations and recent advances in the design, implementation, deployment, and usage of middleware systems. Middleware is the software that resides between applications and the underlying architecture. The goal of middleware is to facilitate the development of applications by providing higher-level abstractions for better programmability, performance, scalability, security, and a variety of essential features. It is a rapidly evolving and growing field.</s>
+    <s>Following the success of past conferences in this series, the 12th International Middleware Conference will be the premier event for middleware research and technology in 2011. The scope of the conference is the design, implementation, deployment, and evaluation of distributed system platforms and architectures for current and future computing, storage, and communication environments. Highlights of the conference will include a high quality technical program, invited speakers, an industrial track, poster and demo presentations, a doctoral symposium, and workshops.</s>
+    <s>Submissions on a diversity of topics are sought, particularly those identifying new research directions. The topics of the conference include, but are not limited to:</s>
+    <s>Middleware platforms:</s>
+    <s>Middleware for emerging cloud computing, datacenters, and server farms</s>
+    <s>Middleware for traditional clusters and grid computing</s>
+    <s>Middleware for mobile devices, ubiquitous, and mobile computing</s>
+    <s>Middleware for sensor and embedded systems</s>
+    <s>Middleware for Internet applications and social networks</s>
+    <s>Middleware for Web services, Web service composition, and SOA</s>
+    <s>Middleware for data-intensive computing</s>
+    <s>Event-based, publish/subscribe, and message-oriented middleware</s>
+    <s>Middleware support for multimedia and tele-immersion</s>
+    <s>Reconfigurable, adaptable, and reflective middleware approaches</s>
+    <s>Middleware solutions for distributed databases</s>
+    <s>Peer-to-peer middleware solutions</s>
+    <s>Systems issues for Middleware:</s>
+    <s>Reliability and fault-tolerance</s>
+    <s>Scalability and performance</s>
+    <s>Energy- and power-aware techniques</s>
+    <s>Virtualization, auto-scaling, provisioning, and scheduling</s>
+    <s>Security, Privacy, and Information assurance</s>
+    <s>Storage and file systems</s>
+    <s>Parallelized execution and techniques</s>
+    <s>Dynamic configuration and self- or autonomic- management of middleware</s>
+    <s>Real-time solutions and quality of service</s>
+    <s>Evaluation and deployment: challenges, techniques, and lessons learned</s>
+    <s>Design principles and tools:</s>
+    <s>Programming frameworks, parallel programming, and design methodologies for middleware</s>
+    <s>Empirical and deployment studies for middleware solutions</s>
+    <s>Debugging and distributed debugging of middleware</s>
+    <s>Probabilistic techniques and approaches for middleware</s>
+    <s>Methodologies and tools for middleware design, implementation, verification, and evaluation</s>
+    <s>Formal methods, verification, and software engineering for middleware</s>
+    <s>Security and Privacy</s>
+    <s>Old Wine: Revisiting classical middleware paradigms, e.g., object models, aspect orientation, etc.</s>
+    <s>Industry Papers</s>
+    <s>The conference strongly encourages submission of industry-focused papers and use case studies; full papers should be submitted to the main program, where they will be reviewed using appropriate criteria (e.g., emphasizing experience and system evolution), and accepted papers will be published in the main conference proceedings.</s>
+    <s>To submit full industry papers, visit http://www.easychair.org/account/signin.cgi?conf=middleware2011, select the option Main Track Research Papers and set the paper category as &quot;Industry paper (full paper, main track)&quot;.</s>
+    <s>Additionally, short industry-focused papers (6 pages, ACM style) may be submitted to a special industrial track whose CfP will be issued separately, later. Accepted short papers will be presented at the conference and published in the ACM Digital Library.</s>
+    <s>More information about the submission of Industry Papers can be found in the Call For Industrial Track Papers section.</s>
+    <s>Big Ideas Papers</s>
+    <s>We particularly encourage &quot;big ideas papers&quot;; that is papers that have the potential for opening up new research directions. For such papers, the potential to motivate new research is more important than full experimental evaluation, though some preliminary evidence of the effectiveness of the approach or idea is important. Authors should indicate in the introduction that their paper is a vision of a big idea, rather than more mature work. Such papers should clearly indicate why the idea is revolutionary and not evolutionary; what the major questions still to be answered are; and possible avenues of attack for the community to pursue towards the development of the idea.</s>
+    <s>Submission Guidelines</s>
+    <s>You will be requested to upload the file of your paper to the conference server (please avoid large files and bitmaps!). Please make sure all information is filled in the online form. The Middleware 2011 proceedings will be published in Lecture Notes in Computer Science (LNCS) both in print and in electronic form. Papers must not exceed 20 pages, including abstract, all figures, tables, and references. Papers should include a short abstract and up to 6 keywords. Submitted papers should follow the formatting instructions of the Springer LNCS Style (http://www.springer.com/computer/lncs?SGWID=0-164-6-793341-0).</s>
+    <s>Paper Submission Link</s>
+    <s>Important Dates</s>
+    <s>The cut-off time will be 23:59 in the last timezone in the globe (UTC - 12).</s>
+    <s>May 23, 2011 - Abstract Submission (HARD DEADLINE)</s>
+    <s>May 30, 2011 - Paper Submission (HARD DEADLINE)</s>
+    <s>August 5, 2011 - Notification of acceptance</s>
+    <s>September 7, 2011 - Camera ready due</s>
+    <s>12 - 16 December 2011 - Conference</s>
+    <s>There will be a separate call for workshops, for tutorials, and for the Doctoral Symposium.</s>
+    <s>Please check the website for dates.</s>
+    <s>General Chairs</s>
+    <s>Paulo Ferreira, INESC ID / Technical University of Lisbon</s>
+    <s>Luís Veiga, INESC ID / Technical University of Lisbon</s>
+    <s>Program Committee Chairs</s>
+    <s>Anne-Marie Kermarrec, INRIA-Rennes</s>
+    <s>Fabio Kon, University of São Paulo</s>
+    <s>Program Committee</s>
+    <s>Jean Bacon, University of Cambridge, UK</s>
+    <s>Ken Birman, Cornell University, USA</s>
+    <s>Gordon Blair, University of Lancaster, UK</s>
+    <s>Christian Cachin, IBM Research - Zurich, Switzerland</s>
+    <s>Roy Campbell, University of Illinois at Urbana-Champaign, USA</s>
+    <s>Renato Cerqueira, PUC-Rio, Brazil</s>
+    <s>Ranveer Chandra, Microsoft Research Redmond, USA</s>
+    <s>Lucy Cherkasova, HP Labs, USA</s>
+    <s>Brian F. Cooper, Google, USA</s>
+    <s>Paolo Costa, Imperial College, UK</s>
+    <s>Peter Pietzuch, Imperial College, UK</s>
+    <s>Fábio Costa, UFG, Brazil</s>
+    <s>Geoff Coulson, University of Lancaster, UK</s>
+    <s>Koustuv Dasgupta, Xerox, India</s>
+    <s>Fred Douglis, EMC, USA</s>
+    <s>Frank Eliassen, University of Oslo, Norway</s>
+    <s>Markus Endler, PUC-Rio, Brazil</s>
+    <s>Patrick Eugster, Purdue University, USA</s>
+    <s>David Eyers, University of Otago, NZ</s>
+    <s>Paulo Ferreira, INESC ID / Technical University of Lisbon, Portugal</s>
+    <s>Davide Frey, INRIA, France</s>
+    <s>Vincent Gramoli, EPFL, Switzerland</s>
+    <s>Gang Huang, Peking University, China</s>
+    <s>Valerie Issarny, INRIA, France</s>
+    <s>Hans-Arno Jacobsen, University of Toronto, Canada</s>
+    <s>Wouter Joosen, KUL-DistriNet, Belgium</s>
+    <s>Flavio Junqueira, Yahoo research, Barcelona</s>
+    <s>Anne-Marie Kermarrec, INRIA, France</s>
+    <s>Steve Ko, SUNY at Buffalo, USA</s>
+    <s>Fabio Kon, University of São Paulo, Brazil</s>
+    <s>Cecilia Mascolo, University of Cambridge, UK</s>
+    <s>Jan De Meer, SmartSpaceLab, Germany</s>
+    <s>Erwan Le Merrer, Technicolor Research, France</s>
+    <s>Dejan Milojicic, HP Labs, USA</s>
+    <s>Klara Nahrstedt, University of Illinois at Urbana-Champaign, USA</s>
+    <s>Gian Pietro Picco, University of Trento, Italy</s>
+    <s>Oriana Riva, Microsoft Research, USA</s>
+    <s>Etienne Riviere, University of Neuchâtel, Switzerland</s>
+    <s>Antony Rowstron, Microsoft Research Cambridge, UK</s>
+    <s>Rick Schantz, BBN Technologies, USA</s>
+    <s>Douglas Schmidt, SEI-CMU, USA</s>
+    <s>Dilma Silva, IBM Research T. J. Watson, USA</s>
+    <s>Maarten van Steen, VU University Amsterdam, The Netherlands</s>
+    <s>Francois Taiani, Lancaster University, UK</s>
+    <s>Peter Triantafillou, University of Patras, Greece</s>
+    <s>Nalini Venkatasubramanian, University of California at Irvine, USA</s>
+    <s>Roman Vitenberg, University of Olso, Norway</s>
+    <s>Marko Vukolic, Eurecom, France</s>
+    <s>Ben Zhao, University of California Santa Barbara, USA</s>
+    <s>Call for Papers</s>
+    <s>Call for Posters</s>
+    <s>Call For Industrial Track Papers</s>
+    <s>Paper Submission</s>
+    <s>Preliminary Program</s>
+    <s>Accepted Papers</s>
+    <s>Doctoral Symposium</s>
+    <s>Middleware History</s>
+    <s>Authors' Instructions</s>
+    <s>Student scholarships</s>
+    <s>Workshops/PhD/Poster/Industry Author's Instructions</s>
+    <s>Workshop/PhD/Industry/Posters Chairs/Editors' Instructions</s>
+  </text>
+</page>
