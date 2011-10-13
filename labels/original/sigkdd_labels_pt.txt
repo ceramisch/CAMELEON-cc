@@ -1,0 +1,77 @@
+ACM_SIGKDD	acm sigkdd
+Award	prêmio
+Best_Applications_Paper_Award	prêmio  para o melhor artigo sobre uma aplicação
+Best_Research_Paper_Award	prêmio  para o melhor artigo sobre pesquisa
+Best_Student_Paper_Award	prêmio  para o melhor artigo de estudante
+Committee	comitê de programa
+Best_Paper_Awards_Committee	comitê para o prêmio de melhor artigo
+Organizing_Committee	comitê organizador
+Program_Committee	comitê de programa
+Conference	conferência
+Deadline	prazo
+Deadline_Abstract_Submission	prazo de submissão para resumos
+Deadline_Author_notification	prazo de notificação dos autores
+Deadline_Paper_Submission	prazo de submissão para artigos
+Document	documento
+Abstract	resumo
+Paper	artigo
+Review	revisão
+Fee	taxa
+Registration_fee	taxa de inscrição
+Registration_Non-Member	inscricao de não membros
+Registration_SIGKDD_Member	inscrição de membro da sigkdd
+Registration_SIGMOD_Member	inscrição de membro da sigmod
+Registration_Student	inscrição para estudantes
+Sponzor_fee	taxa para patrocínio
+Person	pessoa
+Listener	ouvinte
+Organizator	organizador
+General_Chair	coordenador geral
+Organizing_Committee_member	membro do comitê organizador
+Program_Chair	coordenador de programa
+Program_Committee_member	membro do comitê de programação
+Webmaster	webmaster
+Speaker	palestrante
+Author	autor
+Author_of_paper	autor de artigo
+Author_of_paper_student	autor de artigo de estudante
+Invited_Speaker	palestrante convidado
+Place	lugar
+Conference_hall	salão da conferência
+Hotel	hotel
+Main_office	escritório principal
+Sponzor	patrocinador
+Best_Student_Paper_Supporter	patrocinador  melhor artigo estudante
+Bronze_Supporter	patrocinador bronze
+Exhibitor	exibidor
+Gold_Supporter	patrocinador ouro
+Platinum_Supporter	patrocinador platina
+Silver_Supporter	patrocinador prata
+award	possui prêmio
+awarded_by	premiados por
+can_stay_in	pode ficar em
+design	conjunto de prazos
+designed_by	conjunto de prazos para
+hold	conferência realizada
+holded_by	conferência realizada por
+notification_until	notificação de autor até
+obtain	obter prêmio
+pay	pagamento de inscrição
+payed_by	inscrição paga por
+presentation	apresentação
+presentationed_by	apresentado por
+search	pesquisa
+searched_by	pesquisado por
+submit	submissão de artigo
+submit_until	 possui prazo de submissão
+City_of_conference	cidade da conferência
+Currency	moeda
+Date	data
+E-mail	e-mail
+End_of_conference	data final da conferência
+Name	possui nome
+Name_of_conference	possui nome da conferência
+Name_of_sponsor	possui nome do patrocinador
+Nation	possui nacionalidade
+Price	possui preço
+Start_of_conference	data de início da conferência

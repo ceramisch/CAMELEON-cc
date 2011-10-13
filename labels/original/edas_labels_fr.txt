@@ -1,0 +1,153 @@
+Call	appel
+CallForManuscripts	appel à manuscrits
+CallForPapers	appel à communications
+CallForReviews	appel à révisions
+Conference	conférence
+SingleLevelConference	conférence de niveau unique
+TwoLevelConference	conférence de deux niveau
+ConferenceEvent	évènement lié à la conférence
+AcademicEvent	évènement académique 
+OrganizationalMeeting	réunion d'organisation 
+PaperPresentation	présentation d'article
+TalkEvent	évènement de conférence dans la conférence
+ClosingTalk	conférence de fermeture	
+WelcomeTalk	conférence d'accueil
+Workshop	atelier
+NonAcademicEvent	évènement non académique
+BreakEvent	pause	
+CoffeeBreak	pause café	
+FreeTimeBreak	pause temps libre
+MealBreak	pause repas
+MealEvent	évènement repas
+ConferenceDinner	dîner de la conférence	
+SocialEvent	évènement sociale
+Excursion	excursion
+Reception	réception
+ConferenceSession	session de la conférence
+ContactInformation	information de contact
+Country	pays
+Document	document
+MealMenu	menu du repas
+Paper	article
+AcceptedPaper	article accepté
+ActivePaper	article actif
+RatedPapers	article evalué
+PendingPaper	article en attente
+PublishedPaper	article publié
+RejectedPaper	article rejeté
+WithdrawnPaper	article retiré
+Programme	programme
+Review	révision
+SlideSet	ensemble de diaporamas
+Organization	organisation
+AcademiaOrganization	organisation de l'académie
+GovernmentOrganization	organisation gouvernementale
+IndustryOrganization	organisation industrielle
+NGO	ONG
+Person	personne
+Attendee	auditeur (ou participant)
+Author	auteur
+Presenter	présentateur (ou conférencier)
+ConferenceChair	président de la conférence
+Reviewer	relecteur
+SessionChair	président de la session	
+TPCMember	membre du TPC
+PersonalHistory	historique personnel 
+PersonalPublicationHistory	historique personnel de publication
+PersonalReviewHistory	historique personnel de révision
+Place	lieu
+AccommodationPlace	lieu d'hébergement
+ConferenceVenuePlace	lieu de la conférence principale
+DiningPlace	lieu du dîner de la conférence
+MeetingRoomPlace	salle de réunion
+ReviewForm	formulaire de révision
+ReviewQuestion	question de la révision
+NumericalReviewQuestion	question numérique de la révision
+TextualReviewQuestion	qestion textuelle de la révision
+ReviewRating	note de révision
+AcceptRating	note d'acceptation
+AccpetIfRoomRating	note d'acceptation marginale 
+RejectRating	note de rejet
+WeekRejectRating	note de rejet faible
+Sponsorship	sponsorisation
+TravelGrant	subventions pour le voyage
+Topic	thème (or sujet)
+AntennasTopic	thèmes antennes	
+CADTopic	thème CAD
+CommunicationTheoryTopic	thème théorie de la communication
+CommunicationsTopic	thème communications 
+ComputerArchitectureTopic	thème architecture des ordinateurs
+ComputerNetworksTopic	thème réseaux informatiques
+ComputerNetworksAapplicationsTopic	thème applications réseaux
+ComputerNetworksEnterpriseTopic	thème réseaux informatiques dans les entreprise
+ComputerNetworksManagementTopic	thème gestion de réseaux informatiques
+ComputerNetworksMeasurementsTopic	thème mesures dans les réseaux informatiques
+ComputerNetworksOpticalTopic	thème réseaux informatiques optiques
+ComputerNetworksSecurityTopic	thème securité dans les réseaux informatiques 
+ComputerNetworksSensorTopic	thème capteurs réseaux informatiques
+ComputerNetworksSwitchingTopic	thème commutation réseaux informatiques
+CryptographyTopic	thème cryptographie
+MedicineTopic	thème médecine
+MicroelectronicsTopic	thème microélectronique
+MobileComputingTopic	thème informatique mobile
+MultimediaTopic	thème multimédias
+OperatingTopicsystems	thème systèmes d'exploitation
+ParallelAndDistributedComputingTopic	thème calcul parallèle et distribué
+PerformanceTopic	thème performance
+PowerlineTransmissionTopic	thème transmission courants porteurs en ligne (CPL)
+RadioCommunicationsTopic	thème communications radio
+SatelliteAndSpaceCommunicationsTopic	thème satellite et les communications spatiales
+SecurityTopic	thème sécurité
+SignalProcessingTopic	thème traitement du signal
+TestOnlyTopic	thème test
+WirelessCommunicationsTopic	thème communications sans fil
+attendeeAt	auditeur (ou participant) à
+belongsToEvent	appartient à l'événement
+forEvent	pour l'événement
+hasAttendee	a auditeur (ou participant)
+hasCall	a appel
+hasCountry	a pays
+hasLocation	a lieu
+hasMember	a membre
+hasMenu	a menu
+hasProgramme	a programme
+hasRating	a note
+hasRelatedDocument	a document lié
+hasRelatedPaper	a écrit l'article
+hasReviewHistory	a historique de révision
+hasTopic	a sujet (ou thème)
+initiates	initie l'appel
+isInitiatedBy	est initiée par
+isLocationOf	est le lieu de 
+isMemberOf	est membre de
+isMenuOf	est menu de 
+isProviderOf	est sponsor de
+isReviewHistoryOf	est l'historique de révision
+isReviewedBy	est revisé par
+isReviewing	passe en révision
+isTopicOf	est thème de
+isWrittenBy	est écrit par
+providedBy	est fourni par
+relatedToEvent	est présenté dans
+relatedToPaper	est sur l'article
+relatesTo	relates to
+endDate	date et l'heure de la fin de la conférence
+hasBiography	a biographie
+hasCity	a ville
+hasCostAmount	a du montant des coûts
+hasCostCurrency	a devise de coûts
+hasEmail	a courriel
+hasEndDateTime	a date et l'heure de la fin
+hasFirstName	a prénom
+hasLastName	a nom
+hasName	a nom (nom complet de la conférence)
+hasPhone	a téléphone
+hasPostalCode	a code postal
+hasStartDateTime	a date et l'heure de début
+hasStreet	a rue
+hasSubmissionDeadline	a date limite de soumission
+hasSubmissionInstructions	a des directives de soumission 
+manuscriptDueOn	date et l'heure limites de soumission de manuscrits
+paperDueOn	date et l'heure limites de soumission d'articles 
+registrationDueOn	date et l'heure limites pour l'inscription à la conférence
+startDate	date et l'heure de début de la conférence

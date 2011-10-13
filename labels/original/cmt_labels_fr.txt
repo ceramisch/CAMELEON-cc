@@ -1,0 +1,88 @@
+Bid	proposition 	 
+Conference	conférence	
+Decision	décision	
+Acceptance	acceptation
+Rejection	rejet
+Document	document
+Paper	article
+PaperAbstract	résumé de l'article
+PaperFullVersion	version complète de l'article
+Review	révision	
+Meta-Review	méta-révision
+Person	personne
+Chairman	président 
+ConferenceMember	membre de la conférence
+AssociatedChair	président associé	
+Author	auteur
+AuthorNotReviewer	auteur qui n'est pas relecteur 
+Co-author	co-auteur
+ConferenceChair	président de la conférence
+ProgramCommitteeMember	membre du comité de programme
+ProgramCommitteeChair	président du comité de programme
+Reviewer	relecteur
+Meta-Reviewer	méta-relecteur
+ExternalReviewer	relecteur externe
+User	utilisateur
+Administrator	administrateur
+Preference	préférence
+ProgramCommittee	comité de programme	
+SubjectArea	thème	
+acceptedBy	article accepté par
+acceptPaper	administrateur accepte article 
+addedBy	ajouté par
+addProgramCommitteeMember	ajoute membre du comité de programme
+adjustBid	ajuste proposition
+adjustedBy	proposition ajustée par 
+assignedByAdministrator	attribué par l'administrateur
+assignedByReviewer	attribué par le relecteur	
+assignedTo	article attribué au relecteur	
+assignExternalReviewer	attribue relecteur externe 
+assignReviewer	attribue relecteur 		
+co-writePaper	co-écrire article
+detailsEnteredBy	détails de la conférence saisis par l'administrateur
+enableVirtualMeeting	permettre réunion virtual
+endReview	finalise la révision 
+enterConferenceDetails	saisi les détails de la conférence 
+enterReviewCriteria	saisi les critères de la révision  
+finalizePaperAssignment	finalise l'attribution d'article
+hardcopyMailingManifestsPrintedBy	publipostage imprimés par
+hasAuthor	article a un auteur
+hasBeenAssigned	relecteur a été attribué à un papier
+hasBid	article a une proposition
+hasCo-author	article a un co-auteur
+hasConferenceMember	conférence a un membre 
+hasConflictOfInterest	a conflit d'intérêt
+hasDecision	article a une décision
+hasProgramCommitteeMember	comité de programme a membre 
+hasSubjectArea	article a un thème 
+markConflictOfInterest	marque conflit d'intérêt	
+memberOfConference	membre de la conférence
+memberOfProgramCommittee	membre du comité de programme
+paperAssignmentFinalizedBy	attribution d'article finalisé par
+paperAssignmentToolsRunBy	outils d'attribution d'article exécutés par
+printHardcopyMailingManifests	administrateur imprime publipostage
+readByMeta-Reviewer	article lu par meta-relecteur
+readByReviewer	article lu par relecteur
+readPaper	relecteur lit l'article
+rejectedBy	article rejeté par l'administrateur
+rejectPaper	administrateur rejette l'article
+reviewCriteriaEnteredBy	critères de révision remplis par l'administrateur
+reviewerBiddingStartedBy	proposition de révision commencé par l'administrateur
+runPaperAssignmentTools	exécute l'outils d'attribution d'article
+setMaxPapers	définit nombre maximum d'articles
+startReviewerBidding	commence l'attribution d'article aux relecteurs
+submitPaper	auteur soumet un article
+virtualMeetingEnabledBy	réunion virtuelle activé par l'administrateur
+writePaper	auteur écrit un article
+writeReview	relecteur écrit la révision
+writtenBy	révision écrite par
+acceptsHardcopySubmissions	accepte soumissions d'articles en papier
+date	date
+email	courriel
+logoURL	logo URL
+maxPapers	nombre maximum d'articles
+name	nom
+paperID	identifier d'article
+reviewsPerPaper	commentaires par article
+siteURL	URL du site
+title	titre

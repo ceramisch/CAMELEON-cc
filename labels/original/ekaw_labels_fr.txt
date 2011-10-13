@@ -1,0 +1,106 @@
+Document	document
+Abstract	résumé
+Invited_Talk_Abstract	résumé  de la conférence invitée
+Tutorial_Abstract	résumé du tutoriel
+Flyer	dépliants
+Multi-author_Volume	volume avec plusieurs auteurs
+Proceedings	actes
+Conference_Proceedings	actes de la conférence
+Paper	article 
+Camera_Ready_Paper	version finale de l'article
+Conference_Paper	article de la conférence
+Demo_Paper	article de démonstration
+Industrial_Paper	article industriel
+Poster_Paper	article poster
+Regular_Paper	article long
+Submitted_Paper	article soumis
+Assigned_Paper	article attribué
+Evaluated_Paper	article evalué
+Accepted_Paper	article accepté
+Rejected_Paper	article rejeté
+Workshop_Paper	article d'atelier
+Programme_Brochure	brochure du programme
+Review	révision
+Negative_Review	révision négative
+Neutral_Review	révision neutre
+Positive_Review	révision positive
+Web_Site	site web
+Event	évènement
+Scientific_Event	évènement scientifique
+Conference	conférence
+Individual_Presentation	présentation individuelle
+Contributed_Talk	conférence contribuée
+Invited_Talk	conférence invitée
+Tutorial	tutoriel
+Session	session
+Conference_Session	session de la conférence
+Industrial_Session	session des applications industrielles
+Demo_Session	session des démonstrations
+Poster_Session	sessions des posters
+Regular_Session	session des articles longs 
+Workshop_Session	session d'atelier
+Track	track
+Workshop	atelier
+Social_Event	évènement sociale
+Conference_Banquet	banquet de la conférence
+Conference_Trip	voyage à la conférence
+Location	lieu
+Organisation	organisation
+Academic_Institution	institution académique
+Research_Institute	institut de recherche 
+University	université
+Organising_Agency	agence organisatrice
+Proceedings_Publisher	editeur des actes
+Person	personne
+Agency_Staff_Member	membre du personnel de l'agence
+Conference_Participant	participant de la conférence
+Demo_Chair	président de session de démonstration
+Early-Registered_Participant	participant avec inscription précoce 
+Late-Registered_Participant	participant avec inscription tardive 
+OC_Member	membre de l'OC
+OC_Chair	président de l'OC
+PC_Chair	président du PC
+Presenter	présentateur (ou conférencier)
+Invited_Speaker	conférencier invité
+Session_Chair	président de la session
+Tutorial_Chair	président du tutoriel 
+Workshop_Chair	président de l'atelier
+Paper_Author	auteur de l'article
+Possible_Reviewer	relecteur possible
+PC_Member	membre du comité de programme
+SC_Member	membre du comité scientifique
+Student	étudiant
+Research_Topic	thème (ou sujet) de recherche
+authorOf	auteur de
+coversTopic	couvre le thème (ou sujet)
+eventOnList	évènement sur la liste
+hasPart	a partie
+hasEvent	a évènement
+inverse_of_partOf_7	inverse d'une partie de 7
+hasReview	a révision
+hasReviewer	a relecteur
+hasUpdatedVersion	a version mise à jour
+heldIn	a lieu à
+listsEvent	répertorie l'événement
+locationOf	lieu de
+organisedBy	organisé par
+scientificallyOrganisedBy	scientifiquement organisé par
+technicallyOrganisedBy	techniquement organisé par
+organises	organise
+scientificallyOrganises	organise scientifiquement
+technicallyOrganises	organise techniquement
+paperInVolume	article dans le volume
+paperPresentedAs	article présenté comme
+partOf	partie de
+partOfEvent	partie de l'événement
+presentationOfPaper	présentation d'article
+publisherOf	éditeur de
+referencedIn	référencé dans
+references	références
+reviewerOfPaper	relecteur de l'article
+reviewOfPaper	révision de l'article
+topicCoveredBy	sujet couvert par
+updatedVersionOf	version mise à jour de
+volumeContainsPaper	volume contient l'article
+writtenBy	écrit par
+reviewWrittenBy	révision écrite par

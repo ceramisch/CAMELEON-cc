@@ -1,0 +1,106 @@
+Document	documento
+Abstract	resumo
+Invited_Talk_Abstract	resumo de palestra convidada
+Tutorial_Abstract	resumo de tutorial
+Flyer	folder
+Multi-author_Volume	volume de vários autores
+Proceedings	anais
+Conference_Proceedings	anais de conferência
+Paper	artigo
+Camera_Ready_Paper	versão final do artigo
+Conference_Paper	artigo de conferência
+Demo_Paper	artigo de demonstração de protótipo ou aplicação
+Industrial_Paper	artigo de aplicação industrial
+Poster_Paper	poster
+Regular_Paper	artigo completo
+Submitted_Paper	artigo submetido
+Assigned_Paper	artigo atribuído para revisão
+Evaluated_Paper	artigo avaliado
+Accepted_Paper	artigo aceito
+Rejected_Paper	artigo rejeitado
+Workshop_Paper	artigo de workshop
+Programme_Brochure	brochura de programação
+Review	revisão
+Negative_Review	revisão negativa
+Neutral_Review	revisão neutra
+Positive_Review	revisão positiva
+Web_Site	sítio
+Event	evento
+Scientific_Event	evento científico
+Conference	conferência
+Individual_Presentation	apresentação individual
+Contributed_Talk	palestra submetida
+Invited_Talk	palestra convidada
+Tutorial	tutorial
+Session	sessão
+Conference_Session	sessão de conferência
+Industrial_Session	sessão de aplicações industriais
+Demo_Session	sessão de demonstrações de protótipos ou aplicações
+Poster_Session	sessão de posteres
+Regular_Session	sessão técnica
+Workshop_Session	sessão de workshop
+Track	trilha
+Workshop	workshop
+Social_Event	evento social
+Conference_Banquet	banquete da conferência
+Conference_Trip	viagem para a conferência
+Location	local
+Organisation	organização
+Academic_Institution	instituição acadêmica
+Research_Institute	insitituto de pesquisa
+University	universidade
+Organising_Agency	agência organizadora
+Proceedings_Publisher	editora dos anais
+Person	pessoa
+Agency_Staff_Member	funcionário da agência
+Conference_Participant	participante da conferência
+Demo_Chair	coordenador de demonstrações de aplicações ou protótipos
+Early-Registered_Participant	participante registrado antecipadamente
+Late-Registered_Participant	participante registrado tardiamente
+OC_Member	membro do comitê organizador
+OC_Chair	coordenador do comitê organizador
+PC_Chair	coordenador do comitê de programa
+Presenter	apresentador
+Invited_Speaker	palestrante convidado
+Session_Chair	coordenador da sessão
+Tutorial_Chair	coordenador de tutoriais
+Workshop_Chair	coordenador dos workshops
+Paper_Author	autor de artigo
+Possible_Reviewer	possível revisor
+PC_Member	membro do comitê de programa
+SC_Member	membro comite sessao
+Student	estudante
+Research_Topic	 tópico de pesquisa
+authorOf	autor de
+coversTopic	abrange tópico
+eventOnList	evento na lista
+hasPart	possui parte
+hasEvent	possui evento
+inverse_of_partOf_7	inverse of part of 7 
+hasReview	possui revisão
+hasReviewer	possui revisor
+hasUpdatedVersion	possui versão atualizada
+heldIn	sediado em
+listsEvent	lista evento
+locationOf	local de
+organisedBy	organizado por
+scientificallyOrganisedBy	cientificamente organizado por
+technicallyOrganisedBy	tecnicamente organizado por
+organises	organiza
+scientificallyOrganises	cientificamente organiza
+technicallyOrganises	tecnicamente organiza
+paperInVolume	artigo no volume
+paperPresentedAs	artigo apresentado como
+partOf	parte de
+partOfEvent	parte do evento
+presentationOfPaper	apresentação de artigo
+publisherOf	publicador de
+referencedIn	referenciado em
+references	referências
+reviewerOfPaper	revisor de artigo
+reviewOfPaper	revisão do artigo
+topicCoveredBy	tópico abrangido por
+updatedVersionOf	versão atualizada de
+volumeContainsPaper	volume contém artigo
+writtenBy	escrito por
+reviewWrittenBy	revisão escrita por

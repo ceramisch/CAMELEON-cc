@@ -1,0 +1,181 @@
+Activity	atividade
+Activity_after_conference	atividade pós conferência
+Departure	embarque
+Full_day_tour	excursão de dia inteiro
+Activity_before_conference	atividade pré conferência
+Accepting_manuscript	aceitação de artigos
+Receiving_manuscript	recepção de  artigos
+Refusing_manuscript	recusa de  artigos
+Renting	aluguel
+Research	pesquisa
+Modelling	modelagem
+Simulating	simulação
+Conference_activity	atividade da conferência
+Coctail_reception	coquetel de recepção
+Coffee_break	pausa
+Introduction	introdução
+Introduction_of_speaker	apresentação do orador
+Lecture	palestra
+Plenary_lecture	palestra plenária
+Session	sessão
+Speaker_lecture	palestra do orador
+Tutorial	tutorial
+Presentation	apresentação
+PowerPoint_presentation	apresentação em powerpoint
+Video_presentation	apresentação de vídeo
+Registration	inscrição
+Social_program	programa social
+Dinner_banquet	banquete
+Technic_activity	atividade técnica
+Welcome_address	discurso de boas vindas
+City	cidade
+Conference_city	cidade da conferência
+Presenter_city	cidade do apresentador
+Sponsor_city	cidade do patrocinador
+Trip_city	cidade da viagem
+Currency	moeda
+Item	item
+Audiovisual_equipment	equipamento audiovisual
+Computer	computador
+LCD_projector	projetor lcd
+Overhead_projector	retroprojetor
+Video_cassette_player	aparelho de vídeo cassete
+Card	cartão
+Credit_card	cartão de crédito
+Document	documento
+Brief_introduction_for_Session_chair	breve introdução para a sessão do coordenador
+Form	formulário
+Author_information_form	formulário de informação aos autores
+Hotel_registration_form	formulário de inscrição no hotel
+Registration_form	formulário de inscrição
+Invitation_letter	carta-convite
+Mailing_list	lista de emails
+Payment_document	documento de pagamento
+Bank_transfer	transferência bancária
+Cheque	cheque
+Record_of_attendance	lista de presença
+Review	revisão
+Submission	submissão
+Final_manuscript	versão final
+Initial_manuscipt	versão inicial
+Transparency	transparências
+Viza	visto
+Publication	publicação
+Book_proceeding	livro dos anais
+Cd_proceening	cd dos anais
+Transport_vehicle	veículo de transporte
+Car	carro
+Shuttle_bus	ônibus
+Taxi	táxi
+Van	van
+Money	custo
+Fee	taxa
+Fee_for_extra_trip	taxa de viagem extra
+Hotel_fee	preço do hotel
+Registration_fee	taxa de inscrição
+Author_attendee_book_registration_fee	taxa de inscrição para autor participante livro
+Author_attendee_cd_registration_fee	taxa de inscrição para autor participante cd
+Memeber_registration_fee	taxa de inscrição para membro
+Nonauthor_registration_fee	taxa de inscrição para não-autor
+Nonmember_registration_fee	taxa de inscrição para não-membro
+Student_registration_fee	taxa de inscrição para estudante
+Sponzorship	patrocínio
+Tax	taxa
+Departure_tax	taxa de embarque
+Value_added_tax	taxa sobre valor adicionado
+Tip	gorjeta
+Person	pessoa
+Delegate	delegado
+Conference_Hiker	excursionista da conferência
+Hotel_presenter	apresentador hospedado no hotel
+IASTED_member	membro do iasted
+IASTED_non_member	não membro do iasted
+Listener	ouvinte
+Non_speaker	nao palestrante
+Student_non_speaker	estudante nao palestrante
+Worker_non_speaker	profissional nao palestrante
+One_day_presenter	apresentador de um dia
+Session_chair	coordenador da sessão
+Speaker	palestrante
+Author	autor
+Author_book_proceedings_included	autor livro incluído nos anais
+Author_cd_proceedings_included	autor cd incluído nos anais
+Lecturer	apresentador
+Student_lecturer	apresentador estudante
+Worker_lecturer	professor funcionário
+Plenary_lecture_speaker	apresentador da palestra plenária
+Tutorial_speaker	apresentador de tutorial
+Reviewer	revisor
+Technical_commitee	comissão técnica
+Sponsor	patrocinador
+Place	local
+Building	prédio
+Conference_airport	aeroporto da conferência
+Conference_building	prédio da conferência
+Conference_hotel	hotel da conferência
+Conference_restaurant	restaurante da conferência
+Presenter_house	casa do apresentador
+Presenter_university	universidade do apresentador
+Sponsor_company_house	empresa patrocinadora
+Conference_hall	salão da conferência
+Hotel_room	quarto de hotel
+Double_hotel_room	quarto duplo de hotel
+Single_hotel_room	quarto simples de hotel
+Main_office	escritório principal
+Session_room	sala da sessão
+State	estado
+Conference_state	estado da conferência
+Presenter_state	estado do apresentador
+Sponsor_state	estado do patrocinador
+Time	tempo
+Conference_days	dias da conferência
+One_conference_day	dia da conferência
+Deadline	data limite
+Camera_ready_manuscript_deadline	data limite para versão final artigo
+Deadline_for_notification_of_acceptance	data limite de notificação de aceitação
+Deadline_hotel_reservation	data limite de reserva de hotel
+Registation_deadline	data limite de inscrição
+Submissions_deadline	data limite de submissão
+Trip_day	dia da viagem
+Time_zone	fuso horário
+give	de
+go_through	va por
+is_connected_with	está conectado com
+is_designed_for	é projetado para
+is_equipped_by	é equipado por
+is_given_by	é determinado por
+is_given_to	é dado para
+is_held_after	é feito depois
+is_held_before	é feito antes
+is_held_in	é feito dentro
+is_made_from	é feito de
+is_needed_for	é necessário para
+is_occupied_by	é ocupado por
+is_paid_by	é pago por
+is_paid_for	é pago para
+is_paid_in	é pago dentro
+is_paid_with	é pago com
+is_prepared_by	é preparado por
+is_present	está presente
+is_present_in	está presente dentro
+is_sent_after	é enviado depois
+is_sent_before	é enviado antes
+is_sent_by	é enviado por
+is_signed_by	é assinado por
+is_situated_in	é situado dentro
+is_used_by	é usado por
+is_used_for	é usado para
+is_visited_by	é visitado por
+is_writen_by	é escrito por
+need	necessita
+obtain	obtem
+occupy	ocupa
+pay	paga
+prepare	prepara
+send	envia
+sign	assina
+speak_in	fala em
+write	 escreve
+done_till	feito até
+has_amount_of	tem a quantia de
+is_dated_on	tem data

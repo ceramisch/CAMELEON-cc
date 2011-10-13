@@ -1,0 +1,74 @@
+City	ville
+Contribution	contribution
+Paper	article
+Poster	poster
+Short_paper	article court
+Country	pays 
+Event	évènement
+Administrative_event 	évènement administrative
+Camera_Ready_event	évènement d'envoi de version finale
+Registration_of_participants_event	évènement d'inscription de participants
+Reviewing_event	événement de révision
+Reviewing_results_event	évènement de révision de résultats
+Submission_event	évènement de soumission
+Social_event	évènement sociale
+Banquet	banquet
+Reception	réception
+Trip	voyage 
+Working_event	évènement de travail
+Conference	conférence 
+Tutorial	tutoriel 
+Workshop	atelier 
+Organization	organisation  
+Company	entreprise 
+University	université 
+Person	personne
+Administrator	administrateur
+Assistant	adjointe 
+Author	auteur
+Chair_PC	président du comité de programme
+Member_PC	membre du comité de programme 
+Participant	participant 
+Member	personne impliquée dans la conférence 
+Regular	participant régulier de la conférence
+Student	participant étudiant de la conférence
+Scholar	participant académique de la conférence
+Science_Worker	chercheur	
+Volunteer	bénévoles de la conférence
+Topic	sujet (ou thème)
+dealsWith	traite le sujet
+employedBy	employées par	
+expertOn	a expertise sur le sujet
+follows	suit	
+hasAdministrativeEvent	a évènement administrative pertinent
+hasCity	a ville (séjour dans la ville)
+hasCountry	a un pays
+hasTopic	a un sujet (thème)
+parallel_with	parallèlement à
+reviewes	révise
+studyAt	étudie à l'université
+writes	écrit une contribution
+writtenBy	écrite par auteur	
+abstract	a un résumé
+contactEmail	a un courriel de contact 
+defaultChoice	choix par défaut du numéro d'évènement	 
+earlyRegistration	participant de la conférence a une inscription précoce
+ends_on	jour où l'évènement se termine
+has_short_title	a un titre court
+has_title	a un titre 
+hasEmail	a un courriel 
+hasFax	a un numéro de fax
+hasFirstName	a un prénom
+hasHomePage	a une pageWeb
+hasKeyword	a des mots clés
+hasPhone	a un téléphone
+hasPostalCode	a un code postal	 
+hasStreet	a une rue
+hasSurname	a un nom
+hasTitle	a un titre
+hasVAT	a une taxe sur la valeur ajoutée
+location	lieu
+maxChoice	choix sur le nombre maximal de l'évènement
+minChoice	choix sur le nombre minimal de l'évènement
+remark	remarque
+starts_on	jour où l'évènement commence (début de l'évènement)

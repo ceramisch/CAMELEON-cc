@@ -1,0 +1,181 @@
+Activity	activité
+Activity_after_conference	activité ayant lieu après la conférence
+Departure	départ  
+Full_day_tour	tour de journée complète
+Activity_before_conference	activité ayant lieu avant la conférence
+Accepting_manuscript	activité d'acceptation d'un manuscrit
+Receiving_manuscript	activité de réception d'un manuscrit 
+Refusing_manuscript	activité de refuser un manuscrit 
+Renting	activité de location d'une voiture 
+Research	activité de recherche 
+Modelling	activité de modélisation 
+Simulating	activité de simulation 
+Conference_activity	activité ayant lieu pendant la conférence
+Coctail_reception	cocktail de réception  
+Coffee_break	pause café 
+Introduction	introduction 
+Introduction_of_speaker	introduction du conférencier
+Lecture	séance de cours
+Plenary_lecture	séance de cours plénière
+Session	session
+Speaker_lecture	cours donnée par un conférencier 
+Tutorial	tutoriel 
+Presentation	présentation 
+PowerPoint_presentation	présentation power point 
+Video_presentation	présentation vidéo 
+Registration	inscription 
+Social_program	activité sociale
+Dinner_banquet	banquet du dîner
+Technic_activity	activité technique
+Welcome_address	allocution de bienvenue
+City	ville 
+Conference_city	ville où la conférence a lieu
+Presenter_city	ville d'où vient le présentateur
+Sponsor_city	ville d'où vient le sponsor 
+Trip_city	ville qui est la destination pour un voyage 
+Currency	devises 
+Item	item (en général)
+Audiovisual_equipment	équipement audiovisuel 
+Computer	ordinateur 
+LCD_projector	projecteur LCD  
+Overhead_projector	rétroprojecteur
+Video_cassette_player	lecteur de cassettes vidéo 
+Card	carte 
+Credit_card	carte de crédit
+Document	tout type de document
+Brief_introduction_for_Session_chair	brève introduction pour le président de la session 
+Form	formulaire 
+Author_information_form	formulaire de renseignement sur l'auteur
+Hotel_registration_form	formulaire d'inscription à l'hôtel
+Registration_form	formulaire d'inscription à la conférence
+Invitation_letter	lettre d'invitation 
+Mailing_list	liste de diffusion 
+Payment_document	document de paiement 
+Bank_transfer	virement bancaire 
+Cheque	chéque 
+Record_of_attendance	registre de participation
+Review	révision 
+Submission	soumission 
+Final_manuscript	manuscrit final
+Initial_manuscipt	manuscrit initial 
+Transparency	transparent pour le rétroprojecteur
+Viza	visa 
+Publication	publication 
+Book_proceeding	actes en format papier 
+Cd_proceening	actes en format numérique (CD)
+Transport_vehicle	véhicule de transport 
+Car	voiture 
+Shuttle_bus	navette 
+Taxi	taxi 
+Van	van
+Money	montant d'argent 
+Fee	frais
+Fee_for_extra_trip	frais de voyage supplémentaire  
+Hotel_fee	frais d'hôtel 
+Registration_fee	frais d'inscription 
+Author_attendee_book_registration_fee	frais d'inscription payés par un auteur participant pour recevoir les actes en format papier
+Author_attendee_cd_registration_fee	frais d'inscription payés par un auteur participant pour recevoir les actes en format numérique
+Memeber_registration_fee	frais d'inscription pour un membre 
+Nonauthor_registration_fee	frais d'inscription pour un non auteur 
+Nonmember_registration_fee	frais d'inscription pour un non membre
+Student_registration_fee	frais d'inscription pour un étudiant
+Sponzorship	sponsorisation 
+Tax	taxe
+Departure_tax	taxe de départ
+Value_added_tax	valeur de taxe ajoutée
+Tip	paiement volontaire additionnelle
+Person	personne 
+Delegate	délégué (personne inscrit et qui visite la conférence)
+Conference_Hiker	marcheur de la conférence
+Hotel_presenter	présentateur de l'hôtel 
+IASTED_member	membre du IASTED
+IASTED_non_member	non membre du iasted 
+Listener	auditeur
+Non_speaker	non présentateur 
+Student_non_speaker	étudiant qui n'est pas un présentateur (conférencier)
+Worker_non_speaker	travailleur qui n'est pas un présentateur (conférencier)
+One_day_presenter	présentateur (ou conférencier) qui ne présente que dans un jour
+Session_chair	président de la session 
+Speaker	présentateur (ou conférencier) 
+Author	auteur
+Author_book_proceedings_included	auteur qui recevra les actes que en format papier
+Author_cd_proceedings_included	auteur qui recevra les actes que en format numérique 
+Lecturer	conférencier 
+Student_lecturer	conférencier étudiant
+Worker_lecturer	conférencier travailleur
+Plenary_lecture_speaker	conférencier qui donne une conférence devant le plénum
+Tutorial_speaker	conférencier qui présente un tutoriel 
+Reviewer	relecteur 
+Technical_commitee	comité technique 
+Sponsor	sponsor 
+Place	lieu 
+Building	bâtiment 
+Conference_airport	aéroport de la conférence 
+Conference_building	bâtiment de la conférence 
+Conference_hotel	hôtel de la conférence 
+Conference_restaurant	restaurant de la conférence 
+Presenter_house	maison des présentateurs
+Presenter_university	université d'un présentateur 
+Sponsor_company_house	maison d'une entreprise étant un sponsor 
+Conference_hall	salle de conférence 
+Hotel_room	chambre d'hôtel 
+Double_hotel_room	chambre d'hôtel double 
+Single_hotel_room	chambre d'hôtel simple 
+Main_office	bureau principal 
+Session_room	salle de session
+State	état 
+Conference_state	état où la conférence a lieu 
+Presenter_state	état du présentateur 
+Sponsor_state	état du sponsor 
+Time	temps
+Conference_days	jours de la conférence 
+One_conference_day	conférence d'une journéé  
+Deadline	date limite  
+Camera_ready_manuscript_deadline	date limite pour soumettre la version finale du manuscrit  
+Deadline_for_notification_of_acceptance	date limite pour la notification de l'acceptation
+Deadline_hotel_reservation	date limite pour la réservation d'hôtel 
+Registation_deadline	date limite pour l'inscription   
+Submissions_deadline	date limite pour la soumission  
+Trip_day	jour assigné pour un voyage
+Time_zone	fuseau horaire 
+give	donne
+go_through	passe par
+is_connected_with	est connecté à 
+is_designed_for	est conçu pour 
+is_equipped_by	est équipé par 
+is_given_by	est donnée par
+is_given_to	est donnée à
+is_held_after	a lieu après
+is_held_before	a lieu avant 
+is_held_in	a lieu dans
+is_made_from	est fait à partir de
+is_needed_for	est nécessaire pour 
+is_occupied_by	est occupé par 
+is_paid_by	est payé par 
+is_paid_for	est payé pour  
+is_paid_in	est payé en 
+is_paid_with	est payé avec  
+is_prepared_by	est préparé par
+is_present	est présent à l'heure
+is_present_in	est présent à l'heure ou l'espace 
+is_sent_after	est envoyé après 
+is_sent_before	est envoyé avant
+is_sent_by	est envoyé pour 
+is_signed_by	est signé par
+is_situated_in	est localement situé dans
+is_used_by	est utilisée par 
+is_used_for	est utilisé pour 
+is_visited_by	est visité par
+is_writen_by	est écrit par
+need	a besoin de 
+obtain	obtient
+occupy	occupe (réside)
+pay	paie
+prepare	prépare 
+send	envoie
+sign	signe
+speak_in	parle à l'heure  
+write	écrit  
+done_till	être fait jusqu'à 
+has_amount_of	a quantité de 
+is_dated_on	est daté sur

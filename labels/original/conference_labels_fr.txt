@@ -1,0 +1,124 @@
+Committee	comité
+Organizing_committee	comité d'organisation
+Program_committee	comité de programme
+Steering_committee	comité de pilotage
+Conference	conférence
+Conference_volume	série de la conférence
+Conference_document	document de la conférence
+Call_for_paper	appel à communication	
+Call_for_participation	appel à participation
+Conference_announcement	annonce de la conférence	
+Conference_contribution	contribuition à la conférence
+Poster	poster
+Presentation	présentation
+Invited_talk	la conférence invitée	
+Written_contribution	contribution écrite
+Regular_contribution	contribution régulière (long)
+Extended_abstract	résumé étendu
+Abstract	résumé
+Paper	Article
+Submitted_contribution	contribution soumise
+Reviewed_contribution	contribution revisée
+Accepted_contribution	contribution acceptée
+Camera_ready_contribution	version finale de la contribution
+Rejected_contribution	contribution rejetée
+Conference_www	conférence www
+Information_for_participants	information aux participants
+Review	révision
+Conference_fees	frais d'inscription
+Conference_part	partie de la conférence
+Track	track de la conférence
+Tutorial	tutoriel
+Workshop	atelier
+Conference_proceedings	actes de la conférence
+Important_dates	dates importantes
+Organization	organisation
+Organizer	organisateur
+Person	personne
+Committee_member	membre du comité
+Chair	président
+Co-chair	co-président
+Conference_applicant	demandeur de participation dans la conférence
+Paid_applicant	demandeur qui a payé les frais d'inscription
+Early_paid_applicant	demandeur qui a payé les frais d'inscription precoce
+Late_paid_applicant	demandeur qui a payé les frais d'inscription tardive
+Conference_contributor	contributeur de la conférence
+Active_conference_participant	participant actif de la conférence
+Invited_speaker	conférencier invité
+Regular_author	auteur régulier
+Contribution_1th-author	prèmier auteur de la contribution
+Contribution_co-author	co-auteur de la contribution
+Conference_participant	participant de la conférence
+Active_conference_participant	participant actif de la conférence
+Passive_conference_participant	participant passif de la conférence
+Reviewer	relecteur
+Track-workshop_chair	président d'atelier track
+Publisher	editeur
+Review_expertise	expertise du relecteur
+Review_preference	préférence sur la révision 
+Topic	sujet or thème
+Registeered_applicant	demandeur (inscrit) enregistré
+belong_to_a_conference_volume	appartiennent à un volume de la conférence
+belongs_to_a_review_reference	sujet lié à une préférence du relecteur
+belongs_to_reviewers	préférence ou expertise du relecteur
+contributes	contribue à la conférence
+gives_presentations	donne des présentations
+has_a_commtitee	a un comité
+has_a_program_committee	a un comité de programme
+has_a_steering_committee	a un comité de pilotage
+has_an_organizing_committee	a un comité d'organisation
+has_a_publisher	a un editeur
+has_a_review	a un relecteur
+has_a_review_expertise	a une expertise de révision
+has_a_review_reference_or_expertise	a une référence ou une expertise de révision
+has_a_submitted_contribution	a soumis une contribution
+has_a_topic_or_a_submission_contribution	a un sujet ou une contribution soumise
+has_a_track-workshop-tutorial_chair	a un président d'atelier
+has_a_track-workshop-tutorial_topic	a un sujet d'atelier
+has_an_abstract	a un resumé
+has_authors	a des auteurs
+has_been_assigned_a_review_reference	a été attribué à une préférence de révision
+has_contributions	a des contributions
+has_important_dates	a des date importantes
+has_members	a des membres
+has_a_committee_chair	a un président de comité
+has_a_committee_co-chair	a un co-président de comité
+has_parts	a des parties
+has_tracks	a des tracks
+has_tutorials	a des tutoriels	
+has_workshops	a des ateliers
+invited_by	invité par
+invites_co-reviewers	invite les co-relecteurs
+is_a_topis_of_conference_parts	est un sujet (thème) de une partie de la conférence
+is_given_by	est presenté par
+is_part_of_conference_volumes	fait partie des volumes de la conférence
+is_submitted_at	est soumis à
+is_the_1th_part_of	est la première partie de
+issues	éditeur publie les actes de la conférence
+reviews	révise une contribution 
+was_a_committee_of	était un comité de la conférence
+was_a_program_committee_of	était un comité de programme
+was_a_steering_committee_of	était un comité de pilotage
+was_an_organizing_committee_of	était un comité d'organisation
+was_a_member_of	était un membre de
+was_a_committe_co-chair_of	était un co-président de comité de
+was_a_committee_chair_of	était un président de comité de
+was_a_track-workshop_chair_of	était un président d'atelier de
+has_a_URL	URL du site web de la conférence est
+has_a_date_of_issue	a une date de publication 
+has_a_degree	a un degré de préference de révision
+has_a_location	a un lieu
+has_a_name	a un nom
+has_a_volume	a un numéro de volume
+has_an_ISBN	a un ISBN
+has_an_email	a un courriel
+has_an_expertise	a une expertise (degré d'expertise du relecteur)
+has_gender	a sexe
+has_the_first_name	a le prénom
+has_the_last_name	a le nom
+is_a_date_of_acceptance_announcement	est une date d'annonce de l'acceptation	
+is_a_date_of_camera_ready_paper_submission	est une date de soumission de la version finale
+is_a_full_paper_submission_date	est une date de soumission de la version complète
+is_a_starting_date	est une date de début
+is_an_abstract_submission_date	est une date de soumission de résumé
+is_an_ending_date	est une date de fin

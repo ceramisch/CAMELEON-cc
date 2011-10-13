@@ -1,0 +1,77 @@
+ACM_SIGKDD	conférence acm sigkdd
+Award	prix pour le meilleur article de la conférence
+Best_Applications_Paper_Award	prix pour le meilleur article d'application
+Best_Research_Paper_Award	prix pour le meilleur article recherche
+Best_Student_Paper_Award	prix pour le meilleur article étudiant
+Committee	comité
+Best_Paper_Awards_Committee	comité pour choisir les meilleurs articles
+Organizing_Committee	comité d'organisation
+Program_Committee	comité de programme
+Conference	conférence
+Deadline	date limite
+Deadline_Abstract_Submission	date limite pour la soumission de résumé
+Deadline_Author_notification	date limite pour notifier les authors
+Deadline_Paper_Submission	date limite pour soumettre les articles
+Document	document
+Abstract	résumé
+Paper	article
+Review	révision
+Fee	frais de la conférence
+Registration_fee	frais d'inscription
+Registration_Non-Member	frais d'incription pour les personnes qui ne sont pas membre du SIG
+Registration_SIGKDD_Member	frais d'incription pour les membres du sigkdd
+Registration_SIGMOD_Member	frais d'incription pour les membres du sigmod
+Registration_Student	frais d'incription pour les étudiants
+Sponzor_fee	frais de sponsor
+Person	personne
+Listener	auditeur de la conférence
+Organizator	organisateur de la conférence
+General_Chair	président de la conférence
+Organizing_Committee_member	membre du comité d'organisation
+Program_Chair	président de programme
+Program_Committee_member	membre du comité de programme
+Webmaster	web master
+Speaker	conférencier
+Author	auteur
+Author_of_paper	auteur d'article
+Author_of_paper_student	auteur d'article édudiant
+Invited_Speaker	conférencier invité
+Place	lieu
+Conference_hall	lieu de la conférence
+Hotel	hôtel
+Main_office	bureau principal de la conférence
+Sponzor	sponsor
+Best_Student_Paper_Supporter	sponsor pour le meilleur article étudiant
+Bronze_Supporter	sponsor de bronze de la conférence
+Exhibitor	sponsor as exposant
+Gold_Supporter	sponsor d'or de la conférence
+Platinum_Supporter	sponsor platinum de la conférence
+Silver_Supporter	sponsor silver de la conférence
+award	a prix
+awarded_by	décerné par
+can_stay_in	peut rester dans
+design	spéficie date limite
+designed_by	date limite spécifiée pour
+hold	organise conférence
+holded_by	conférence organisée par
+notification_until	date limite pour notifier les auteurs
+obtain	prix obtenu
+pay	paye frais d'incription
+payed_by	frais d'incription payés par
+presentation	présente document
+presentationed_by	était présenté par
+search	appel à sponsor
+searched_by	sponsors sont appelés par
+submit	soumettre l'article
+submit_until	a une date limite pour la soumission
+City_of_conference	conférence a lieu dans la ville
+Currency	devises de les frais d'inscription
+Date	est date sur
+E-mail	a courriel
+End_of_conference	date du dérnier jour de la conférence
+Name	a nom
+Name_of_conference	a nom de la conférence
+Name_of_sponsor	a nom du sponsor
+Nation	a nationalité
+Price	a prix
+Start_of_conference	date du premièr jour de la conférence

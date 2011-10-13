@@ -1,0 +1,88 @@
+Bid	propostas
+Conference	conferência
+Decision	decisão
+Acceptance	aceitação
+Rejection	rejeição
+Document	documento
+Paper	artigo
+PaperAbstract	resumo do artigo
+PaperFullVersion	versão completa de artigo
+Review	revisão
+Meta-Review	meta revisão
+Person	pessoa
+Chairman	coordenador geral do evento
+ConferenceMember	membro participante da conferência
+AssociatedChair	coordenador associado do evento
+Author	Autor
+AuthorNotReviewer	autor não revisor
+Co-author	co autor
+ConferenceChair	coordenador da conferência
+ProgramCommitteeMember	membro do comitê de programa
+ProgramCommitteeChair	coordenador do comitê de programa
+Reviewer	revisor
+Meta-Reviewer	meta revisor
+ExternalReviewer	revisor externo
+User	usuário
+Administrator	administrador
+Preference	preferência
+ProgramCommittee	comitê de programa
+SubjectArea	área temática
+acceptedBy	aceito por
+acceptPaper	artigo aceito
+addedBy	adicionado por
+addProgramCommitteeMember	adicionar um membro do comitê de programa
+adjustBid	ajustar o pedido de revisão
+adjustedBy	pedido de revisao ajustado
+assignedByAdministrator	atribuído pelo administrador
+assignedByReviewer	atribuído pelo revisor
+assignedTo	atribuído para
+assignExternalReviewer	atribuir um revisor externo
+assignReviewer	atribuir um revisor
+co-writePaper	escrever um artigo com
+detailsEnteredBy	inserir detalhes
+enableVirtualMeeting	permitir uma reunião virtual
+endReview	revisão final
+enterConferenceDetails	inserir os detalhes da conferência
+enterReviewCriteria	inserir os critérios das Revisões
+finalizePaperAssignment	finalizar as atribuições dos Artigos
+hardcopyMailingManifestsPrintedBy	mala  direta
+hasAuthor	possui Autor
+hasBeenAssigned	possui Atribuição
+hasBid	possui pedido de revisão
+hasCo-author	possui pedido de revisão
+hasConferenceMember	possui participante da conferência
+hasConflictOfInterest	possui conflito de interesses
+hasDecision	possui decisão
+hasProgramCommitteeMember	possui um membro do comitê de programa
+hasSubjectArea	possui uma área
+markConflictOfInterest	marca um conflito de interesse
+memberOfConference	membro da conferência
+memberOfProgramCommittee	membro do comite de programa
+paperAssignmentFinalizedBy	atribuição de um artigo finalizada por
+paperAssignmentToolsRunBy	ferramentas de atribuição de artigos executadas por
+printHardcopyMailingManifests	impressão de documentos de envio de volume de correio
+readByMeta-Reviewer	leitura realizada por um meta revisor
+readByReviewer	leitura realizada po um revisor
+readPaper	leitura de artigo
+rejectedBy	artigo rejeitado por
+rejectPaper	rejeitar artigo
+reviewCriteriaEnteredBy	critérios de revisão introduzidos por
+reviewerBiddingStartedBy	pedidos de revisão iniciados por
+runPaperAssignmentTools	executar ferramentas de atribuição de artigos
+setMaxPapers	definição do número máximo de artigos
+startReviewerBidding	iniciar pedidos de revisão
+submitPaper	envio de artigos
+virtualMeetingEnabledBy	reunião virtual habilitada por
+writePaper	artigo escrito
+writeReview	revisão realizada
+writtenBy	escrito por
+acceptsHardcopySubmissions	aceita submissões impressas
+date	tem data
+email	tem email
+logoURL	URL
+maxPapers	máximo de artigos
+name	tem nome
+paperID	tem código do artigo
+reviewsPerPaper	revisões por artigo
+siteURL	tem site
+title	tem título

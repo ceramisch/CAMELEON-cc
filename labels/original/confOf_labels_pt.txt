@@ -1,0 +1,74 @@
+City	cidade
+Contribution	contribuição
+Paper	artigo
+Poster	resumo
+Short_paper	artigo resumido
+Country	país
+Event	evento
+Administrative_event	avento administrativo
+Camera_Ready_event	evento de entrega das versões finais
+Registration_of_participants_event	evento de inscrição dos participantes
+Reviewing_event	evento de revisão
+Reviewing_results_event	revisão de resultados
+Submission_event	submissão
+Social_event	evento social
+Banquet	banquete
+Reception	recepção
+Trip	viagem
+Working_event	atividades do evento
+Conference	conferência
+Tutorial	tutorial
+Workshop	workshop
+Organization	organização
+Company	empresa
+University	universidade
+Person	pessoas
+Administrator	administrador
+Assistant	assistente
+Author	autor
+Chair_PC	coordenador do comitê de programa
+Member_PC	membro do comitê de programa
+Participant	participante
+Member	membro participante da conferência
+Regular	efetivo participante da conferência
+Student	estudante participante da conferência
+Scholar	acadêmico participante da conferência
+Science_Worker	cientista participante da conferência
+Volunteer	voluntário participante da conferência
+Topic	Tópico
+dealsWith	lida com um tópico
+employedBy	empregado em
+expertOn	especialista no tópico
+follows	seguinte
+hasAdministrativeEvent	possui evento administrativo
+hasCity	está em uma cidade
+hasCountry	está em um país
+hasTopic	possui tópico
+parallel_with	em paralelo com
+reviewes	revisa
+studyAt	estuda em uma universidade
+writes	escreve uma contribuição
+writtenBy	escrita por um autor
+abstract	possui resumo
+contactEmail	possui contato por email
+defaultChoice	escolha padrão
+earlyRegistration	inscrição antecipada de participante
+ends_on	ùltimo dia do evento
+has_short_title	possui título resumido
+has_title	possui título
+hasEmail	possui email
+hasFax	possui fax
+hasFirstName	possui primeiro nome
+hasHomePage	possui sítio
+hasKeyword	possui  palavra chave
+hasPhone	possui fone
+hasPostalCode	possui caixa postal
+hasStreet	possui rua
+hasSurname	possui sobrenome
+hasTitle	possui título
+hasVAT	possui IVA 
+location	local
+maxChoice	opção máxima
+minChoice	opção mínima 
+remark	possui observação
+starts_on	dia de inicio do evento

@@ -1,0 +1,124 @@
+Committee	comitê
+Organizing_committee	comitê organizador
+Program_committee	comitê de programa
+Steering_committee	comitê diretivo
+Conference	conferência
+Conference_volume	volume da conferência
+Conference_document	documento da conferência
+Call_for_paper	chamada de trabalhos
+Call_for_participation	chamada para participação
+Conference_announcement	anúncio de conferência
+Conference_contribution	contribuição à conferência
+Poster	resumo
+Presentation	apresentação
+Invited_talk	palestra convidada
+Written_contribution	contribuição escrita
+Regular_contribution	contribuição de artigo completo
+Extended_abstract	resumo estendido
+Abstract	resumo
+Paper	artigo
+Submitted_contribution	contribuição submetida
+Reviewed_contribution	contribuição revisada
+Accepted_contribution	contribuição aceita
+Camera_ready_contribution	versão final da contribuição
+Rejected_contribution	contribuição rejeitada
+Conference_www	site da conferência
+Information_for_participants	informações aos participantes
+Review	revisão
+Conference_fees	taxa de inscrição da conferência
+Conference_part	parte da conferência
+Track	trilha da conferência
+Tutorial	Tutorial
+Workshop	Workshop
+Conference_proceedings	anais da conferência
+Important_dates	datas importantes
+Organization	organizacão
+Organizer	organizador
+Person	pessoa
+Committee_member	membro do comitê
+Chair	coordenador geral
+Co-chair	co coordenador
+Conference_applicant	participante da conferência
+Registeered_applicant	participante registrado
+Paid_applicant	participante pago
+Early_paid_applicant	participante pago antecipado
+Late_paid_applicant	participante pago atrasado
+Conference_contributor	contribuinte à conferência
+Active_conference_participant	Participante ativo da conferência
+Invited_speaker	Palestrante convidado
+Regular_author	Autor
+Contribution_1th-author	Primeiro autor da contribuição
+Contribution_co-author	co autor da contribuição
+Conference_participant	participante de conferência
+Active_conference_participant	participante ativo da conferência
+Passive_conference_participant	participante passivo da conferência
+Reviewer	revisor
+Track-workshop_chair	coordenador de trilha de workshop
+Publisher	editora
+Review_expertise	especialidade de revisão
+Review_preference	preferência de revisão
+Topic	tópico
+belong_to_a_conference_volume	pertence a um volume da conferência
+belongs_to_a_review_reference	pertence a uma preferência de revisão
+belongs_to_reviewers	pertence a revisores
+contributes	contribui para a canferência
+gives_presentations	ministra apresentações
+has_a_commtitee	possui um comitê
+has_a_program_committee	possui um comitê de programa
+has_a_steering_committee	possui um comitê diretivo
+has_an_organizing_committee	possui um comitê organizador
+has_a_publisher	possui uma editora
+has_a_review	possui uma revisão
+has_a_review_expertise	possui uma especialidade de revisão
+has_a_review_reference_or_expertise	possui uma preferência ou especialidade de revisão
+has_a_submitted_contribution	possui uma contribuição submetida
+has_a_topic_or_a_submission_contribution	possui um tópico ou uma contribuição submetida
+has_a_track-workshop-tutorial_chair	possui um coordenador de trilha de workshop e de tutorial
+has_a_track-workshop-tutorial_topic	possui um tópico de trilha para workshop e tutorial
+has_an_abstract	possui um resumo
+has_authors	possui autores
+has_been_assigned_a_review_reference	foi atribuída uma preferência de revisão
+has_contributions	possui contribuições
+has_important_dates	possui datas importantes
+has_members	possui membros
+has_a_committee_chair	possui um coordenador geral
+has_a_committee_co-chair	possui um co coordenador
+has_parts	possui partes
+has_tracks	possui trilhas
+has_tutorials	possui tutoriais
+has_workshops	possui workshops
+invited_by	convidado por
+invites_co-reviewers	convida co revisores
+is_a_topis_of_conference_parts	é um tópico de partes da conferência
+is_given_by	é ministrada por
+is_part_of_conference_volumes	é parte de volumes da conferência
+is_submitted_at	é submetida a
+is_the_1th_part_of	é a primeira parte de
+issues	publica
+reviews	revisa
+was_a_committee_of	foi um comitê de conferência
+was_a_program_committee_of	foi um comitê de programa de conferência
+was_a_steering_committee_of	foi um comitê diretivo de conferência
+was_an_organizing_committee_of	foi um comitê organizador de conferência
+was_a_member_of	foi um membro de
+was_a_committe_co-chair_of	foi um co coordenador de
+was_a_committee_chair_of	foi um coordenador geral de
+was_a_track-workshop_chair_of	foi um coordenador de trilha de workshop de
+has_a_URL	o site da conferencia é
+has_a_date_of_issue	data de publicação
+has_a_degree	diploma de revisão
+has_a_location	localização da conferência
+has_a_name	possui nome
+has_a_volume	número do volume dos anais
+has_an_ISBN	ISBN dos anais
+has_an_email	possui um email
+has_an_expertise	especialidade do revisor
+has_gender	possui sexo
+has_the_first_name	possui primeiro nome
+has_the_last_name	possui sobrenome
+is_a_date_of_acceptance_announcement	data de anúncio de aceitação
+is_a_date_of_camera_ready_paper_submission	data de entrega da versão final de artigo
+is_a_full_paper_submission_date	data de submissão de artigo completo
+is_a_starting_date	data de início
+is_an_abstract_submission_date	data de submissão de resumo
+is_an_ending_date	dia de encerramento

@@ -1,0 +1,153 @@
+Call	chamada
+CallForManuscripts	chamada de manuscritos
+CallForPapers	chamada de trabalhos
+CallForReviews	chamada de revisores
+Conference	conferência
+SingleLevelConference	conferência de um nível
+TwoLevelConference	conferência de dois níveis
+ConferenceEvent	evento relacionado a conferência
+AcademicEvent	evento acadêmico
+OrganizationalMeeting	reunião organizacional
+PaperPresentation	apresentação de artigo
+TalkEvent	evento de palestra
+ClosingTalk	palestra de fechamento
+WelcomeTalk	palestra de boas vindas
+Workshop	workshop
+NonAcademicEvent	evento não acadêmico
+BreakEvent	evento de intervalo
+CoffeeBreak	intervalo
+FreeTimeBreak	intervalo livre
+MealBreak	intervalo para refeição
+MealEvent	evento de refeicao
+ConferenceDinner	jantar da conferência
+SocialEvent	evento social
+Excursion	excursão
+Reception	recepção
+ConferenceSession	sessão da conferência
+ContactInformation	informações para contato
+Country	país
+Document	documento
+MealMenu	cardápio
+Paper	artigo
+AcceptedPaper	artigo aceito
+ActivePaper	artigo original
+RatedPapers	trabalhos avaliados
+PendingPaper	artigos pendentes
+PublishedPaper	artigo publicado
+RejectedPaper	artigo rejeitado
+WithdrawnPaper	artigo retirado
+Programme	programa
+Review	revisão
+SlideSet	slides
+Organization	organização
+AcademiaOrganization	organização acadêmica
+GovernmentOrganization	organização governamental
+IndustryOrganization 	organização industrial
+NGO	ONG
+Person	pessoa
+Attendee	participante
+Author	autor
+Presenter	apresentador
+ConferenceChair	coordenador da conferência
+Reviewer	revisor
+SessionChair	coordenador da sessão
+TPCMember	membro do comitê de programa
+PersonalHistory	histórico pessoal
+PersonalPublicationHistory	histórico pessoal de publicações
+PersonalReviewHistory	histórico pessoal de revisões
+Place	local
+AccommodationPlace	hospedagem
+ConferenceVenuePlace	local da conferência
+DiningPlace	local do jantar
+MeetingRoomPlace	sala de reuniões
+ReviewForm	formulário de revisão
+ReviewQuestion	questão de revisão
+NumericalReviewQuestion	questão numérica de revisão
+TextualReviewQuestion	questão textual de revisão
+ReviewRating	pontuação da revisão
+AcceptRating	pontuação de aceitação
+AccpetIfRoomRating	pontuação de aceitação condicional
+RejectRating	pontuação de rejeição
+WeekRejectRating	pontuação de rejeição fraca
+Sponsorship	patrocínio
+TravelGrant	auxílio de viagem
+Topic	tópicos
+AntennasTopic	tema antenas
+CADTopic	tema CAD
+CommunicationTheoryTopic	tema teoria da comunicação
+CommunicationsTopic	tema comunicações
+ComputerArchitectureTopic	tema arquitetura de computadores
+ComputerNetworksTopic	tema redes de computadores
+ComputerNetworksAapplicationsTopic	tema aplicações de redes de computadores
+ComputerNetworksEnterpriseTopic	tema redes de computadores corporativas
+ComputerNetworksManagementTopic	tema gerenciamento de redes de computadores
+ComputerNetworksMeasurementsTopic	tema medições de redes de computadores
+ComputerNetworksOpticalTopic	tema redes de computadores óticas
+ComputerNetworksSecurityTopic	 tema segurança em redes de computadores
+ComputerNetworksSensorTopic	 tema redes sensores
+ComputerNetworksSwitchingTopic	tema redes de comutação
+CryptographyTopic	tema criptografia
+MedicineTopic	tema medicina
+MicroelectronicsTopic	tema microeletrônica
+MobileComputingTopic	tema computação móvel
+MultimediaTopic	tema multimídia
+OperatingTopicsystems	tema sistemas operacionais
+ParallelAndDistributedComputingTopic	tema computação paralela e distribuída
+PerformanceTopic	tema desempenho
+PowerlineTransmissionTopic	tema linhas de transmissão
+RadioCommunicationsTopic	tema comunicação por rádio
+SatelliteAndSpaceCommunicationsTopic	tema comunicação por satélite e espacial
+SecurityTopic	tema segurança
+SignalProcessingTopic	tema processamento de sinais
+TestOnlyTopic	tema testes
+WirelessCommunicationsTopic	  tema comunicação sem fio
+attendeeAt	participante em
+belongsToEvent	pertence a evento
+forEvent	para evento
+hasAttendee	possui participante
+hasCall	possui chamada
+hasCountry	possui país
+hasLocation	possui localização
+hasMember	possui membro
+hasMenu	possui menu
+hasProgramme	possui programa
+hasRating	possui avaliação
+hasRelatedDocument	possui documento relacionado
+hasRelatedPaper	possui artigo relacionado
+hasReviewHistory	possui histórico de revisão
+hasTopic	possui tópico
+initiates	inicia
+isInitiatedBy	é iniciado por
+isLocationOf	é localização de
+isMemberOf	é membro de
+isMenuOf	é menu de
+isProviderOf	é provedor de
+isReviewedBy	é revisado por
+isReviewHistoryOf	é histórico de revisão de
+isReviewing	está revisando
+isTopicOf	é tópico de
+isWrittenBy	é escrito por
+providedBy	é provido por
+relatedToEvent	relacionado a evento
+relatedToPaper	relacionado a artigo
+relatesTo	relacionado a
+endDate	data de encerramento
+hasBiography	possui biografia
+hasCity	possui cidade
+hasCostAmount	possui montante de custos
+hasCostCurrency	possui moeda
+hasEmail	possui email
+hasEndDateTime	possui horário de encerramento
+hasFirstName	possui primeiro nome
+hasLastName	possui último nome
+hasName	possui nome
+hasPhone	possui telefone
+hasPostalCode	possui código postal
+hasStartDateTime	possui horário de início
+hasStreet	possui rua
+hasSubmissionDeadline	possui prazo de submissão
+hasSubmissionInstructions	possui instruções de submissão
+manuscriptDueOn	prazo do manuscrito
+paperDueOn	prazo do artigo
+registrationDueOn	prazo de inscrição na conferência
+startDate	data de início da conferência
