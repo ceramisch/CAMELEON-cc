@@ -17,7 +17,7 @@ combinations = []
 #pdb.set_trace()
 
 for line in variable_file.readlines() :
-    variables.append( line.strip() )
+    variables.append( line.strip().replace( " ", "_" ) )
     
 for v1 in variables :
     for v2 in variables :
