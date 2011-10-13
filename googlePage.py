@@ -88,7 +88,7 @@ class GooglePage() :
         #              "\" position=\"" + str( self.position ) + \
         #              "\" lang=\""     + self.lang + \
         #              "\" date=\""     + self.date + "\"/>\n"
-        page += "  <lang>" + self.lang + "</lang>"
+        page += "  <lang>" + self.lang + "</lang>\n"
         page += "  <url>" + self.url.encode('utf-8') + "</url>\n"
         page += "  <title>" + self.title.encode('utf-8') + "</title>\n"
         page += "  <snippet>\n"
