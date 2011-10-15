@@ -460,10 +460,12 @@ def html2text_all( the_url, encoding=None ) :
         req_headers = {'User-Agent': 'Mozilla/5.0 (X11; U; Linux i686) Gecko/20071127 Firefox/2.0.0.11','Referer': 'http://mwetoolkit.sf.net'}
         request = urllib2.Request( baseurl, None, req_headers )
         try :
-            response = urllib2.urlopen( request )
-        except urllib2.HTTPError, e:
-            print sys.stderr >> "Error retrieving URL " + baseurl
-            sys.exit( -1 )       
+            response = urllib2.urlopen( request, timeout=30 )
+        except urllib2.URLError, e:
+            print >> sys.stderr, "HTTP Error retrieving " + baseurl
+            print e
+            #sys.exit( -1 )       
+            return None
         text = response.read()
         if encoding is None:
             try:
