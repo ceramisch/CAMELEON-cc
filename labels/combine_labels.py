@@ -17,7 +17,10 @@ combinations = []
 #pdb.set_trace()
 
 for line in variable_file.readlines() :
-    variables.append( line.strip().replace( " ", "_" ) )
+    kw = line.strip()
+    kw = kw.replace( " ", "_").replace( "'", "_")
+    kw = kw.replace( "(", "" ).replace( ")", "" )
+    variables.append( kw )
     
 for v1 in variables :
     for v2 in variables :
@@ -25,4 +28,4 @@ for v1 in variables :
             combinations.append( "_".join( [constant_part,v1,v2] ) )
 
 for c in combinations :
-    print "python crawler.py -k webascorpus-inf.ufrgs.br -l " + lang + " -p " + prefix + " -n " + n + " -v " + c
+    print "python crawler.py -k webascorpus-inf.ufrgs.br -l " + lang + " -p " + prefix + " -n " + n + " -v " + c + " "
