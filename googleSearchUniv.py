@@ -97,14 +97,41 @@ class GoogleSearchUniv() :
         except IndexError, e :
             return "" # Empty result if element not present
 
-################################################################################  
+###############################################################################
+
+    def build_page( self, r, r_count, p_count, search_term, lang, total ) :
+        """
+            Based on an xml 'R' element, builds a page object
+        """
+        page = None
+        url = self.get_field( r, "UE" )
+        verbose( "***** Result " + str( p_count ) )
+        #if p_count == 16 :
+        #    pdb.set_trace()
+        if not ( url.endswith( ( ".pdf", ".PDF" ) ) or \
+                 url.endswith( ( ".doc", ".DOC" ) ) ) :
+            title = self.get_field( r, "TNB" )
+            date = str( datetime.date.today() )                   
+            snippet = self.split_sent( self.clean( self.get_field(r, "SNB" ) ) )
+            raw_text = self.clean( self.html2txt( self.get_field( r, "U" ) ) )
+            text = self.split_sent( raw_text )
+            if len(text) > 1 : # html correctly converted to txt
+                page = GooglePage( search_term, r_count, p_count, lang,\
+                                   date, url, title, snippet, text, total )
+            else :
+                verbose( "  Ignored unreadable html" )
+        else :
+            verbose( "  Ignored pdf or doc page " + url )                       
+        return page
+
+###############################################################################  
 
     def get_pages( self, lang, search_term, nb_results ):
         """
         """
         pages = []
-        result_count = 0 # Counts only pages that go to the final results
-        page_count = 0 # Counts all pages processed, despite of ignored
+        r_count = 0 # Counts only pages that go to the final results
+        p_count = 0 # Counts all pages processed, despite of ignored
         result_xml = self.send_query( lang, search_term )
         result_dom = xml.dom.minidom.parseString( result_xml )
         res_element = result_dom.getElementsByTagName( "RES" )[ 0 ]
@@ -112,40 +139,35 @@ class GoogleSearchUniv() :
         total = int( self.get_field( res_element, "M" ) )
         verbose( "The query "+search_term+" returned "+str(total)+" results.")
         #pdb.set_trace()
-        while result_count < nb_results and page_count < ending :
+        while r_count < nb_results and p_count < ending :
             try :
                 for r in res_element.getElementsByTagName( 'R' ) :
-                    if result_count < nb_results and page_count < ending :
-                        url = self.get_field( r, "UE" )
-                        title = self.get_field( r, "TNB" )
-                        date = str( datetime.date.today() )                   
-                        snippet = self.split_sentences( self.clean( self.get_field( r, "SNB" ) ) )
-                        text = self.split_sentences( self.clean( self.get_text_from_html( self.get_field( r, "U" ) ) ) )
-                        if len(text) > 1 :
-                            page = GooglePage( search_term, result_count, lang,\
-                                               date, url, title, snippet, text,\
-                                               total )                   
+                    if r_count < nb_results and p_count < ending :
+                        page = self.build_page( r, r_count, p_count, \
+                                                search_term, lang, total )
+                        if page is not None :
                             pages.append( page )
-                            verbose( "Downloaded page number " + str( result_count ) )
-                            result_count = result_count + 1
-                        page_count = page_count + 1
+                            verbose( "  Downloaded page " + str(r_count) )
+                            r_count = r_count + 1
+                        p_count = p_count + 1
                     else :
                         break
             except Exception, e :
+                print >> sys.stderr, "Something went terribly wrong"
                 pdb.set_trace()
                 print e
-            if result_count < nb_results and ending % 20 == 0:
-                result_xml = self.send_query( lang, search_term, page_count )
+            if r_count < nb_results and ending % 20 == 0:
+                result_xml = self.send_query( lang, search_term, p_count )
                 result_dom = xml.dom.minidom.parseString( result_xml )
                 res_element = result_dom.getElementsByTagName( "RES" )[ 0 ]
                 ending = int(res_element.getAttribute("EN"))
         if nb_results > ending :
-            print >> sys.stderr, "WARNING: fewer available results than requested pages. Retrieved %(rc)d from %(nr)d asked"%{"rc":result_count,"nr":nb_results}
+            print >> sys.stderr, "WARNING: fewer available results than requested pages. Retrieved %(rc)d from %(nr)d asked"%{"rc":r_count,"nr":nb_results}
         return pages
         
-################################################################################          
+################################################################################
 
-    def get_text_from_html( self, url ) :
+    def html2txt( self, url ) :
         """
         """
         try :
@@ -211,15 +233,16 @@ class GoogleSearchUniv() :
         url = url.replace( "STARTPLACEHOLDER", str( start ) )
         request = urllib2.Request( url, None, self.post_data )
         try :
-            response = urllib2.urlopen( request )
+            response = urllib2.urlopen( request, timeout=30 )
             return response.read()
-        except urllib2.HTTPError, e:
+        except urllib2.URLError, e:
             print >> sys.stderr, "Error processing query \"" + search_term + "\"\n" + url
+            print str( e.reason )
             return None
 
 ################################################################################  
 
-    def split_sentences( self, text ) :
+    def split_sent( self, text ) :
         """
             Given an input text, returns a list of strings containing the 
             sentences of the original text separated, one string per sentence.
