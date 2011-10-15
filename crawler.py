@@ -92,7 +92,13 @@ def treat_options( opts, arg, n_arg, usage_string ) :
 def filenamize( url ) :
     """
     """
-    return url.replace("/","-").replace(":","-").replace("?","-").replace("&","-")
+    filename = url
+    filename = filename.replace("/","")
+    filename = filename.replace(":","")
+    filename = filename.replace("?","")
+    filename = filename.replace("&","")
+    filename = filename.replace(".","")
+    return filename[:120] # Maximal file name size
 
 ################################################################################
 
