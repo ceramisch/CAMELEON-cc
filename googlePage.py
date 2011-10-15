@@ -34,7 +34,7 @@ class GooglePage() :
 
 ################################################################################
 
-    def __init__( self, keywords, position, lang, date, url, title, snippet, \
+    def __init__( self, keywords, pos1, pos2, lang, date, url, title, snippet, \
                   text, total ) :
         """
             Instanciates a new GooglePage.
@@ -42,7 +42,9 @@ class GooglePage() :
             @param keywords The query keywords that originated the search where 
             this page was retrieved.
             
-            @param position Index of this page in the result list.
+            @param pos1 Index of this page in the resulting output.
+            
+            @param pos2 Index of this page in Google ranking.
             
             @param lang Language used in the request.
             
@@ -61,8 +63,9 @@ class GooglePage() :
             @param total The approximate total number of resutls returned by
             Google for this query.
         """
-        self.keywords    = keywords
-        self.position = position
+        self.keywords = keywords
+        self.pos1     = pos1
+        self.pos2     = pos2
         self.lang     = lang
         self.date     = date
         self.url      = url
@@ -118,7 +121,8 @@ class GooglePage() :
             url: The URL address of the page retrieved and downloaded
             date: The date when this page was retrieved and downloaded
             keywords: The keywords of the query sent to Google
-            position: The position in which this page was retrieved in Google
+            pos1: The position in which this page appears in result list
+            pos2: The position in which this page was retrieved in Google
             lang: The language used as filter in Google request
             total: The approximate number of results returned by Google query
             
@@ -129,5 +133,5 @@ class GooglePage() :
         
         return self.url.encode( 'utf-8' ) + " " + self.date + " " + \
                self.keywords.replace( " ", "_" ) + " " + \
-               str( self.position ) + " " + self.lang + " " + \
-               str( self.total ) + "\n"
+               str( self.pos1 ) + " " + str( self.pos2 ) + " " + \
+               self.lang + " " + str( self.total ) + "\n"
