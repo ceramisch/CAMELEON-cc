@@ -5,4 +5,26 @@ CAPES-COFECUB 707-1
 
 This repo contains the scripts, programs and data for creating the comparable corpus from the domain ontology, based on web documents.
 
-Sep. 29, 2011
+If you want to download the corpus again, you will need to:
+1) Have a registered Google ID in the Google University Research Program (research.google.com/university/search/)
+2) Run the command :
+  sh bin/get_all_corpora.sh <YOUR_GOOGLE_URP_ID>
+  From the machine that has a fixed registered IP associated to your Google University Research ID
+3) Use screen commands "CTRL + A" - "D" to close a screen and "screen -r LANG" to check the status of the download. Use "sh bin/corpus_stats.sh" and "tail conf_corpus/LANG/log.txt" to check work progress
+3) The results are stored in the folder conf_corpus
+
+Folders:
+
+-> parsed
+Contains a sample of 1000 parsed documents in each language
+
+-> raw
+Contains the totality of the raw corpus in each language
+
+-> bin
+Software tools used to build te corpus
+
+-> labels
+Ontology labels used as seed keywords
+
+Oct. 22, 2011
