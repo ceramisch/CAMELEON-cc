@@ -40,25 +40,42 @@ def recreate_paragraphs( text ) :
 
 ################################################################################
 
+def strip_xml( the_string ) :
+    """
+    """
+    cleanContent = the_string
+    cleanContent = cleanContent.replace( "&", "&amp;" ) # Escape sequence
+    cleanContent = cleanContent.replace( "<", "&lt;" ) # Escape sequence
+    cleanContent = cleanContent.replace( ">", "&gt;" ) # Escape sequence
+    cleanContent = cleanContent.replace( "\"", "&quot;" ) # Escape sequence
+    #cleanContent = cleanContent.replace( "*", "&lowast;" ) # Escape WILDCARD (TODO: better generic handling of WILDCARD, since it might be changed in config file)
+    return cleanContent
+	
+################################################################################
+
 def clean( text ) :
 	"""
 	"""
 	clean_text = recreate_paragraphs( text )
-	clean_text = re.sub( "_*","", clean_text )
+	clean_text = re.sub( "_+","", clean_text )
 	out_text = ""
 	for line in clean_text.split( "\n" ) :
+		line = re.sub( "\[.*\] *", "", line )
+		line = strip_xml( line )
+		if re.match( "^ *#", line ) :
+			continue
 		if re.match( "^[^ ]", line ) :
 			out_text += "<s source=\"h\">" + line.strip() + "</s>\n"
 		elif re.match( "^ *[\*\+] ", line ) :
-			out_text += "<s source=\"li\">" + line.strip()[2:] + "</s>\n"
+			nobullet = line.strip()[2:]
+			out_text += "<s source=\"li\">" + re.sub( "^ *[0-9\.]+ ", "", nobullet ) + "</s>\n"
 		elif re.match( "^ *[0-9]+\. ", line ) :
-			out_text += "<s source=\"li\">" + line[line.find(".")+2:].strip() + "</s>\n"
-		elif re.match( "^   [^\*\+]", line ) :
+			out_text += "<s source=\"li\">" + re.sub( "^ *[0-9\.]+ ", "", line ) + "</s>\n"
+		elif re.match( "^   [^\*\+]", line ) and len(line.strip()) > 0 :
 			out_text += "<s source=\"p\">" + line.strip() + "</s>\n"
-		elif len( line ) > 0 :
+		elif len( line.strip() ) > 0 :
 			print "\n\n\n" + line + "\n\n\n"
-
-	#clean_text = re.sub( "\n   ", " ", clean_text )
+	#clean_text = re.sub( "\n   ", " ", clean_text )	
 	return out_text
 	
 text = download( url )
