@@ -123,8 +123,9 @@ class CleanThread( threading.Thread ) :
 			extracted from the HTML.
 		"""
 		global MAX_WIDTH
+		pdb.set_trace()
 		CMD_CONVERT = "lynx -force_html -nolist -width %(w)d -dump -stdin \
-			                -display_charset UTF-8 | iconv -f latin1 -t utf8" \
+			                -display_charset UTF-8 " \
 			                % { "w": MAX_WIDTH }
 		html2txt = subprocess.Popen( CMD_CONVERT, shell=True, \
 						             stdout=subprocess.PIPE, \
@@ -183,7 +184,8 @@ class CleanThread( threading.Thread ) :
 		"""
 			Remove special characters from URL and trim the name
 		"""
-		rand_factor = str( random.randint(10000,99999) )
+		#rand_factor = str( random.randint(10000,99999) )
+		rand_factor = str(10000) # JUST FOR TESTING
 		# Maximal filename size is 120, so we get 115 charcters from the 
 		# beginning of the URL (modulo special characters) and concatenate a
 		# random 5-digit integer, thus reducing the probability of collisions 
