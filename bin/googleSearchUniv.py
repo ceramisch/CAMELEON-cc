@@ -33,6 +33,9 @@ import html2text
 import sys
 import xml.dom.minidom
 import datetime
+import os
+import subprocess
+import tempfile
 
 from googlePage import GooglePage
 from util import verbose
@@ -195,6 +198,16 @@ class GoogleSearchUniv() :
             print >> sys.stderr, "Warning, URL " + url + " ignored"
             print >> sys.stderr, e
         return text.strip().decode('utf-8','ignore')
+
+################################################################################    
+        
+    def html2txt_lynx( self, url ) :        
+		"""
+		"""
+		output = tempfile.TemporaryFile( "w" )
+		subprocess.call( "lynx -dump " + url, stdout=output )
+		for line in output.readlines() :
+			print line.strip()
 
 ################################################################################    
 
