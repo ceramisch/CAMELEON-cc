@@ -22,6 +22,8 @@ XML_HEADER = """<?xml version="1.0" encoding="UTF-8"?>
   <lang>%(lang)s</lang>
   <url>%(url)s</url>
   <title>%(title)s</title>
+  <encoding>%(encoding)s</encoding>
+  <encodingsource>%(encoding_source)s</encodingsource>    
   <snippet>
   </snippet>
   <text>"""
@@ -94,11 +96,11 @@ class CleanThread( threading.Thread ) :
 		"""
 		while True :
 			#grabs downloaded page from queue
-			( url, source_text, exit_status ) = self.clean_queue.get()
+			( url, source_text, exit_status, encoding, enc_source ) = self.clean_queue.get()
 			
 			if exit_status == 0 :		
-				( page_title, page_text ) = self.clean_page( source_text )
-				self.write_output( url, page_title, page_text )					
+				( page_title, page_text ) = self.clean_page( source_text, encoding )
+				self.write_output( url, page_title, page_text, encoding, enc_source )					
 				print >> sys.stderr, "Saved " + url
 			else :	
 				print >> sys.stderr, "Error" + str( exit_status ) + " " + url
@@ -110,7 +112,7 @@ class CleanThread( threading.Thread ) :
 
 ################################################################################
 
-	def clean_page( self, source_text ) :
+	def clean_page( self, source_text, encoding ) :
 		"""
 			XXX
 			
@@ -123,10 +125,10 @@ class CleanThread( threading.Thread ) :
 			extracted from the HTML.
 		"""
 		global MAX_WIDTH
-		pdb.set_trace()
+		#pdb.set_trace()
 		CMD_CONVERT = "lynx -force_html -nolist -width %(w)d -dump -stdin \
-			                -display_charset UTF-8 " \
-			                % { "w": MAX_WIDTH }
+			                -display_charset UTF-8 -assume_local_charset %(c)s"\
+			                % { "w": MAX_WIDTH, "c" : encoding }
 		html2txt = subprocess.Popen( CMD_CONVERT, shell=True, \
 						             stdout=subprocess.PIPE, \
 						             stdin=subprocess.PIPE )
@@ -157,7 +159,7 @@ class CleanThread( threading.Thread ) :
 
 ################################################################################
 
-	def write_output( self, url, page_title, page_text ) :
+	def write_output( self, url, page_title, page_text, encoding, enc_source ) :
 		"""
 			Writes the contents of a downloaded and cleaned page into a XML file
 			
@@ -172,7 +174,9 @@ class CleanThread( threading.Thread ) :
 		fileout = open( PREFIX + filename + ".xml", "w" )
 		fileout.write( XML_HEADER % { "lang" : self.lang, \
 		                              "url" : url, \
-		                              "title" : page_title } )
+		                              "title" : page_title, \
+		                              "encoding" : encoding, \
+		                              "encoding_source" : enc_source } )
 		text = self.clean_lynx( page_text )		                           
 		fileout.write( text )
 		fileout.write( XML_FOOTER )
@@ -321,8 +325,8 @@ class DownloadThread( threading.Thread ) :
 			url = self.url_queue.get()
 			# Download the page title and text body (not HTML! CLEAN TEXT)
 			print >> sys.stderr,  "Downloading " + url
-			( source_text, exit_status ) = self.download( url )
-			self.clean_queue.put( ( url, source_text, exit_status ) )
+			( source_text, exit_status, encoding, enc_source ) = self.download( url )
+			self.clean_queue.put( ( url, source_text, exit_status, encoding, enc_source ) )
 			#signals to queue job is done
 			self.url_queue.task_done()
 
@@ -341,13 +345,40 @@ class DownloadThread( threading.Thread ) :
 		"""
 		global TIMEOUT # in seconds
 		try :
+			enc_source = "http-header"
+			encoding = None
 			page_descr = urllib2.urlopen( url, timeout=TIMEOUT )
 			source_text = page_descr.read()
-			encoding = chardet.detect( source_text )[ 'encoding' ]
-			if encoding is not None :
-				source_text = unicode( source_text, encoding ).encode( 'utf-8' )
-			#print >> sys.stderr,  "\n\n>>>>>" + str( chardet.detect( source_text ) )
 			exit_status = 0
+			# First, tries to get the char encoding from the header
+			encoding = page_descr.info().getparam("charset")			
+			# Second, if the header is not present, tries to get it from the
+			# HTML header
+			if encoding is None :
+				# starts with meta, has charset, finished with >
+				pat = "<meta[^>]*charset=([^ >]*)[^>]*>"
+				encoding = re.search( pat, source_text, re.DOTALL)
+				if encoding is not None :
+					encoding = encoding.group(1).replace( "\"", "" )
+					print >> sys.stderr, "   DETECTED " + encoding + " " + url
+					enc_source = "html-header"
+				#pdb.set_trace()
+			# Third, it the HTML header is not present, tries to get it from 
+			# automatic detection
+			if encoding is None :
+				encoding = chardet.detect( source_text )[ 'encoding' ]
+				enc_source = "detected"
+			# If one of the former succeeded, convert the detected encoding to
+			# utf-8
+			# if encoding is not None :
+			#	unicode_obj = unicode( source_text, encoding, errors="ignore" )
+			#	source_text = unicode_obj.encode( 'utf-8' )
+			#	exit_status = 0
+			# Otherwise ignore the page and return error
+			if encoding is None :
+				print >> sys.stderr, "Char encoding not detected " + url
+				exit_status = -999
+				source_text = None
 		except urllib2.HTTPError, err :
 			exit_status = err.code
 			title = source_text = None
@@ -355,8 +386,12 @@ class DownloadThread( threading.Thread ) :
 			exit_status = -999
 			source_text = None
 		except Exception, e :
-			print >> sys.stderr, "\n\nUNKNOWN EXCEPTION " + str(e) + "\n\n"		
-		return ( source_text, exit_status )
+			ms = "\n\nUNKNOWN EXCEPTION " + str(type(e)) + " " + str(e) + "\n\n"
+			print >> sys.stderr, ms	
+			print >> sys.stderr, "Char encoding not detected " + url			
+			exit_status = -999
+			source_text = None
+		return ( source_text, exit_status, encoding, enc_source )
 		
 		#CMD_WGET = "wget --timeout %(to)d -t 1 -q -O - \"%(url)s\"" % { "to": TIMEOUT, "url": url }
 		#download = subprocess.Popen( CMD_WGET, shell=True, \
