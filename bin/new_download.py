@@ -1,5 +1,10 @@
 #!/usr/bin/python
-
+"""
+	This script receives as input a list of URLs and gives as output the pages
+	downloaded. It is a sort of simplified crawler. The pages are output in text
+	format, not in HTML, because our goal is to use text processing tools on it.
+	The output format is a folder with a set of 
+"""
 import sys
 import re
 import pdb
@@ -11,6 +16,8 @@ import Queue
 import urllib2
 import datetime
 import chardet
+import httplib
+import socket
 
 ################################################################################
 # CONSTANTS
@@ -19,13 +26,14 @@ import chardet
 XML_HEADER = """<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE page SYSTEM "page.dtd">
 <page>
-  <lang>%(lang)s</lang>
   <url>%(url)s</url>
   <title>%(title)s</title>
-  <encoding>%(encoding)s</encoding>
-  <encodingsource>%(encoding_source)s</encodingsource>    
-  <snippet>
-  </snippet>
+  <charset>%(charset)s</charset>
+  <charsetsource>%(charset_source)s</charsetsource>
+  <date-downloaded>%(datedown)s</date-downloaded>
+  <queries>
+    %(queries)s
+  </queries>
   <text>"""
 XML_FOOTER = """
   </text>
@@ -33,25 +41,37 @@ XML_FOOTER = """
 MAX_WIDTH = 1024
 NUMBER_OF_THREADS = 50
 TIMEOUT = 60 # seconds, for downloading a page
-PREFIX = "raw/new2_%(lang)s/"
 SEP = "\t" # LOG FILE CSV SEPARATOR
-HTTP_CODES = { 0: "SUCCESS", 
-			 404: "ERR-NOTFOUND", 
-			 403: "ERR-FORBIDDEN", 
-			-999: "ERR-READERROR", 
-			 400: "ERR-BADREQUEST", 
-			 500: "ERR-INTERNALSERVER", 
-			 503: "ERR-UNAVAILABLE", 
-			 504: "ERR-GATEWAYTIMEOUT" }
-WGET_CODES = { 0: "SUCCESS",
-			   1: "ERR-GENERIC",			 
-			   2: "ERR-PARSE",
-			   3: "ERR-IO",
-			   4: "ERR-NETWORK",
-			   5: "ERR-SSL",
-			   6: "ERR-AUTH",
-			   7: "ERR-PROTOCOL",
-   			   8: "ERR-SERVER" }
+
+HTTP_CODES = { 0: "SUCCESS",
+			 300: "ERR-MULTIPLE-CHOICE",
+			 301: "ERR-?????",
+			 302: "ERR-MOVED-TEMPORARILY",
+			 400: "ERR-BADREQUEST",
+			 403: "ERR-FORBIDDEN",
+			 404: "ERR-NOTFOUND",
+			 410: "ERR-????????",			 
+			 500: "ERR-INTERNALSERVER",
+			 503: "ERR-UNAVAILABLE",
+ 			 502: "ERR-???????",
+			 504: "ERR-GATEWAYTIMEOUT",
+			-994: "ERR-TIMEOUT",
+			-995: "ERR-SOCKET",
+			-996: "ERR-BADSTATUS",
+			-997: "ERR-NETWORK",
+			-998: "ERR-CHARSET",
+			-999: "ERR-UNKNOWN" }
+
+# Obsolete: wget is not used anymore to download the pages. urllib2 replaces it
+# WGET_CODES = { 0: "SUCCESS",
+#			   1: "ERR-GENERIC",			 
+#			   2: "ERR-PARSE",
+#			   3: "ERR-IO",
+#			   4: "ERR-NETWORK",
+#			   5: "ERR-SSL",
+#			   6: "ERR-AUTH",
+#			   7: "ERR-PROTOCOL",
+#  			   8: "ERR-SERVER" }
 #0   No problems occurred.
 #1   Generic error code.
 #2   Parse error---for instance, when parsing command-line options, the
@@ -73,7 +93,7 @@ class CleanThread( threading.Thread ) :
 	
 ################################################################################
 	
-	def __init__( self, clean_queue, log_file, lang ) :
+	def __init__( self, clean_queue, log_file, lang, prefix ) :
 		"""
 			Override constructor so that the object has access to the pages
 			queue
@@ -81,7 +101,8 @@ class CleanThread( threading.Thread ) :
 		threading.Thread.__init__( self )
 		self.clean_queue = clean_queue
 		self.log_file = log_file # Writable open file descriptor
-		self.lang = lang		
+		self.lang = lang
+		self.prefix = prefix
 		
 ################################################################################
 		
@@ -96,17 +117,19 @@ class CleanThread( threading.Thread ) :
 		"""
 		while True :
 			#grabs downloaded page from queue
-			( url, source_text, exit_status, encoding, enc_source ) = self.clean_queue.get()
-			
+			cq_item = self.clean_queue.get()
+			( url, source_text, exit_status, charset, charset_source, timestamp ) = cq_item
 			if exit_status == 0 :		
-				( page_title, page_text ) = self.clean_page( source_text, encoding )
-				self.write_output( url, page_title, page_text, encoding, enc_source )					
+				cleaned_page = self.clean_page( source_text, charset )
+				( page_title, page_text ) = cleaned_page
+				self.write_output( url, page_title, page_text, \
+								   charset, charset_source, timestamp )					
 				print >> sys.stderr, "Saved " + url
 			else :	
-				print >> sys.stderr, "Error" + str( exit_status ) + " " + url
-				
+				err_msg = "Error " + self.get_error_reason( exit_status ) + " " + url
+				print >> sys.stderr, err_msg				
 			#write log message to file
-			log_file.write( self.log_message( url, exit_status ) )
+			log_file.write( self.log_message( url, exit_status, timestamp ) )
 			#signals to queue job is done
 			self.clean_queue.task_done()
 
@@ -114,11 +137,7 @@ class CleanThread( threading.Thread ) :
 
 	def clean_page( self, source_text, encoding ) :
 		"""
-			XXX
-			
-			http://ascomtaguatinga.wordpress.com/
-			http://bvsms.saude.gov.br/bvs/publicacoes/IV_CONFERENCIA_CIDADE_GRUPO-SAUDE.htm			
-		
+				
 			@result A tuple (title, output) containing two strings, the first is
 			shorter and contains the content of the page <title> head. The 
 			second is a long string with line breaks containing the clean text
@@ -133,6 +152,7 @@ class CleanThread( threading.Thread ) :
 						             stdout=subprocess.PIPE, \
 						             stdin=subprocess.PIPE )
 		(output, error) = html2txt.communicate( source_text )
+		print "Error status" + str(error)
 		source_text = source_text.replace( "\r", "\n" )
 		title = re.search( "<title>[^<]*</title>", \
 						   source_text.replace("\n"," "), \
@@ -146,38 +166,53 @@ class CleanThread( threading.Thread ) :
 
 ################################################################################
 
-	def log_message( self, url, exit_status ) :
+	def get_error_reason( self, exit_status ) :
+		"""
+			Returns a short error message that indicates the error reason.
+			
+			@param exit_status The exit status code from the download function
+			@return A short string error containing the reason message and the
+			error code in parentheses
+		"""
+		global HTTP_CODES		
+		str_err = HTTP_CODES.get( exit_status, "UNKNOWN-" + str(exit_status) )
+		return str_err + "(" + str(exit_status) + ")"
+		
+################################################################################
+
+	def log_message( self, url, exit_status, timestamp ) :
 		"""
 			Create log message and send to logging thread
 		"""
-		global SEP
-		global WGET_CODES
-		global HTTP_CODES		
-		timestamp = str( datetime.datetime.now() )		
-		exit_msg = HTTP_CODES.get( exit_status, "UNKNOWN-" + str(exit_status) )
+		global SEP	
+		exit_msg = self.get_error_reason( exit_status )
 		return url + SEP + exit_msg + SEP + timestamp + SEP + self.lang + "\n"
 
 ################################################################################
 
-	def write_output( self, url, page_title, page_text, encoding, enc_source ) :
+	def write_output( self, url, page_title, page_text, charset, \
+	                  charset_source, timestamp ) :
 		"""
 			Writes the contents of a downloaded and cleaned page into a XML file
 			
 			@param url The complete URL of the page
 			@param page_title The content of <title> head as given by `download`
 			@param page_text The HTML-extracted page text as given by `download`
+			@param charset The character encoding returned by `download`
+			@param charset_source The place where the character encoding comes
+			from.
 		"""
 		global XML_HEADER
 		global XML_FOOTER
-		global PREFIX
 		filename = self.filenamize( url )
-		fileout = open( PREFIX + filename + ".xml", "w" )
-		fileout.write( XML_HEADER % { "lang" : self.lang, \
-		                              "url" : url, \
+		fileout = open( self.prefix + "/" + filename + ".xml", "w" )
+		fileout.write( XML_HEADER % { "url" : url, \
 		                              "title" : page_title, \
-		                              "encoding" : encoding, \
-		                              "encoding_source" : enc_source } )
-		text = self.clean_lynx( page_text )		                           
+		                              "charset" : charset, \
+		                              "charset_source" : charset_source, \
+		                              "datedown" : timestamp, \
+		                              "queries" : "QUERIES" } )		                              
+		text = self.clean_lynx( page_text )                           
 		fileout.write( text )
 		fileout.write( XML_FOOTER )
 		fileout.close()
@@ -188,8 +223,7 @@ class CleanThread( threading.Thread ) :
 		"""
 			Remove special characters from URL and trim the name
 		"""
-		#rand_factor = str( random.randint(10000,99999) )
-		rand_factor = str(10000) # JUST FOR TESTING
+		rand_factor = str( random.randint(10000,99999) )
 		# Maximal filename size is 120, so we get 115 charcters from the 
 		# beginning of the URL (modulo special characters) and concatenate a
 		# random 5-digit integer, thus reducing the probability of collisions 
@@ -323,12 +357,48 @@ class DownloadThread( threading.Thread ) :
 		while True :
 			#grabs URL from queue
 			url = self.url_queue.get()
-			# Download the page title and text body (not HTML! CLEAN TEXT)
+			# Download the page and put in HTML
 			print >> sys.stderr,  "Downloading " + url
-			( source_text, exit_status, encoding, enc_source ) = self.download( url )
-			self.clean_queue.put( ( url, source_text, exit_status, encoding, enc_source ) )
+			downloaded_p = self.download( url ) # returns a tuple
+			self.clean_queue.put( ( url, ) + downloaded_p )
 			#signals to queue job is done
 			self.url_queue.task_done()
+
+################################################################################
+
+	def get_charset( self, source_text, page_descr ) :
+		"""
+			Tries to discover/guess the character encoding (utf-8, latin1, etc.)
+			of a downloaded page.
+		"""
+		charset_source = "http-header" # Assume it's in the HTTP header
+		charset = None
+		# First, tries to get the char encoding from the header
+		charset = page_descr.info().getparam("charset")			
+		# Second, if the header is not present, tries to get it from the
+		# HTML header
+		if charset is None :
+			# starts with meta, has charset, finished with >
+			pat = "<meta[^>]*charset=([^ >]*)[^>]*>"
+			charset = re.search( pat, source_text, re.DOTALL)
+			if charset is not None :
+				charset = charset.group(1).replace( "\"", "" )
+				charset_source = "html-header"
+		# Third, it the HTML header is not present, tries to get it from 
+		# automatic detection
+		if charset is None :
+			charset = chardet.detect( source_text )[ 'encoding' ]
+			charset_source = "detected"
+		# If one of the former succeeded, convert the detected encoding to
+		# utf-8
+		# if encoding is not None :
+		#	unicode_obj = unicode( source_text, encoding, errors="ignore" )
+		#	source_text = unicode_obj.encode( 'utf-8' )
+		#	exit_status = 0
+		# Otherwise ignore the page and return error\
+		if charset is None :
+			raise CharsetError( "character set not detected" )
+		return ( charset, charset_source )
 
 ################################################################################
 		
@@ -344,54 +414,31 @@ class DownloadThread( threading.Thread ) :
 			extracted from the HTML.
 		"""
 		global TIMEOUT # in seconds
+		# Initialize
+		timestamp = str( datetime.datetime.now() )
+		( source_text, charset, charset_source ) = ( None, None, None )
 		try :
-			enc_source = "http-header"
-			encoding = None
 			page_descr = urllib2.urlopen( url, timeout=TIMEOUT )
 			source_text = page_descr.read()
-			exit_status = 0
-			# First, tries to get the char encoding from the header
-			encoding = page_descr.info().getparam("charset")			
-			# Second, if the header is not present, tries to get it from the
-			# HTML header
-			if encoding is None :
-				# starts with meta, has charset, finished with >
-				pat = "<meta[^>]*charset=([^ >]*)[^>]*>"
-				encoding = re.search( pat, source_text, re.DOTALL)
-				if encoding is not None :
-					encoding = encoding.group(1).replace( "\"", "" )
-					print >> sys.stderr, "   DETECTED " + encoding + " " + url
-					enc_source = "html-header"
-				#pdb.set_trace()
-			# Third, it the HTML header is not present, tries to get it from 
-			# automatic detection
-			if encoding is None :
-				encoding = chardet.detect( source_text )[ 'encoding' ]
-				enc_source = "detected"
-			# If one of the former succeeded, convert the detected encoding to
-			# utf-8
-			# if encoding is not None :
-			#	unicode_obj = unicode( source_text, encoding, errors="ignore" )
-			#	source_text = unicode_obj.encode( 'utf-8' )
-			#	exit_status = 0
-			# Otherwise ignore the page and return error
-			if encoding is None :
-				print >> sys.stderr, "Char encoding not detected " + url
-				exit_status = -999
-				source_text = None
-		except urllib2.HTTPError, err :
+			( charset, charset_source ) = self.get_charset( source_text, page_descr )				
+			exit_status = 0			
+		except urllib2.HTTPError as err :
 			exit_status = err.code
-			title = source_text = None
-		except urllib2.URLError, err :
-			exit_status = -999
-			source_text = None
-		except Exception, e :
+		except CharsetError as err :
+			exit_status = -998
+		except urllib2.URLError as err :
+			exit_status = -997
+		except httplib.BadStatusLine as err :
+			exit_status = -996 # Bad http status sent by server
+		except socket.error as err :
+			exit_status = -995 # Socket connection error
+		except socket.timeout as err :
+			exit_status = -994 # Connection timed out
+		except Exception as e :
 			ms = "\n\nUNKNOWN EXCEPTION " + str(type(e)) + " " + str(e) + "\n\n"
-			print >> sys.stderr, ms	
-			print >> sys.stderr, "Char encoding not detected " + url			
+			print >> sys.stderr, ms
 			exit_status = -999
-			source_text = None
-		return ( source_text, exit_status, encoding, enc_source )
+		return ( source_text, exit_status, charset, charset_source, timestamp )
 		
 		#CMD_WGET = "wget --timeout %(to)d -t 1 -q -O - \"%(url)s\"" % { "to": TIMEOUT, "url": url }
 		#download = subprocess.Popen( CMD_WGET, shell=True, \
@@ -400,9 +447,24 @@ class DownloadThread( threading.Thread ) :
 		#exit_status = download.returncode
 		#return ( source_text, exit_status )
 	
-################################################################################	
+################################################################################
+################################################################################
+
+class CharsetError( Exception ) :
+	"""
+		Exception representing the fact that the character encoding was not 
+		detected.
+	"""	
+	def __init__( self, message ):
+		self.message = message
+	def __str__( self ):
+		return repr( self.message )
+
+################################################################################
 
 def read_log( log_filename ) :
+	"""
+	"""
 	logfile = open( log_filename )
 	urls_to_download = {}
 	
@@ -412,14 +474,19 @@ def read_log( log_filename ) :
 		count = urls_to_download.get( url, 0 )
 		urls_to_download[ url ] = count + 1		
 	logfile.close()
-	
+		
 	return urls_to_download
 	
 ################################################################################		
 
-log_filename = sys.argv[ 1 ]
-lang = sys.argv[ 2 ]
-PREFIX = PREFIX % { "lang": lang }
+if len( sys.argv ) == 4 :
+	log_filename = sys.argv[ 1 ]
+	lang = sys.argv[ 2 ]
+	prefix = sys.argv[ 3 ]
+else :
+	usage = "Usage: python " + sys.argv[ 0 ] + " <log_file> <lang> <out_folder>"
+	print >> sys.stderr, usage
+	sys.exit( -1 )
 
 urls_to_download = read_log( log_filename )
 url_queue = Queue.Queue()
@@ -427,8 +494,8 @@ clean_queue = Queue.Queue()
 
 try :
 	# Create cleaner thread (1 instance)
-	log_file = open( PREFIX + "log.txt", "w" )
-	clean_thread = CleanThread( clean_queue, log_file, lang )
+	log_file = open( prefix + "/log.txt", "w" )
+	clean_thread = CleanThread( clean_queue, log_file, lang, prefix )
 	clean_thread.setDaemon( True )
 	clean_thread.start()
 
