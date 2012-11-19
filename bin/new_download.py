@@ -5,6 +5,11 @@
 	format, not in HTML, because our goal is to use text processing tools on it.
 	The output format is a folder with a set of 
 """
+
+# TODO: separate the different classes in different files. Create a data 
+# structure for a query and for a downloaded page with a decent to_xml method.
+# Hard refactoring and some deal of software engineering required!
+
 import sys
 import re
 import pdb
@@ -38,6 +43,15 @@ XML_HEADER = """<?xml version="1.0" encoding="UTF-8"?>
 XML_FOOTER = """
   </text>
 </page>"""
+QUERIES_ELEM = """<query>
+      <keywords></keywords> <!-- The query keywords -->
+      <date-queried></date-queried> <!-- Date when google retrieved the URL -->
+      <lang></lang> <!-- Language filter used for google -->
+      <position></position> <!-- Index/position in the results list -->
+      <totalresults></totalresutls> <!-- Total number of pages matching the keywords -->
+      <snippet></snippet> <!-- Search snippet text -->
+    </query>
+"""
 MAX_WIDTH = 1024
 NUMBER_OF_THREADS = 50
 TIMEOUT = 60 # seconds, for downloading a page
@@ -152,7 +166,7 @@ class CleanThread( threading.Thread ) :
 						             stdout=subprocess.PIPE, \
 						             stdin=subprocess.PIPE )
 		(output, error) = html2txt.communicate( source_text )
-		print "Error status" + str(error)
+		#TODO: treat error Popen.returncode
 		source_text = source_text.replace( "\r", "\n" )
 		title = re.search( "<title>[^<]*</title>", \
 						   source_text.replace("\n"," "), \
@@ -204,6 +218,7 @@ class CleanThread( threading.Thread ) :
 		"""
 		global XML_HEADER
 		global XML_FOOTER
+		global QUERIES_ELEM
 		filename = self.filenamize( url )
 		fileout = open( self.prefix + "/" + filename + ".xml", "w" )
 		fileout.write( XML_HEADER % { "url" : url, \
@@ -211,7 +226,8 @@ class CleanThread( threading.Thread ) :
 		                              "charset" : charset, \
 		                              "charset_source" : charset_source, \
 		                              "datedown" : timestamp, \
-		                              "queries" : "QUERIES" } )		                              
+		                              "queries" : QUERIES_ELEM } ) 
+		#TODO: replace empty query by the query info coming from input URL file 
 		text = self.clean_lynx( page_text )                           
 		fileout.write( text )
 		fileout.write( XML_FOOTER )
@@ -467,7 +483,7 @@ def read_log( log_filename ) :
 	"""
 	logfile = open( log_filename )
 	urls_to_download = {}
-	
+	# TODO: ignore commented lines starting with # (useful for debugging)
 	for line in logfile.readlines() :
 		line = line.strip() 
 		url = line.split(" ")[0]
@@ -508,8 +524,8 @@ try :
 	started = time.time()
 	for url in urls_to_download.keys() :
 		url_queue.put( url )
-	url_queue.join()
 	clean_queue.join()
+	url_queue.join()
 	elapsed = time.time() - started
 	print "Time to download %(nb)d URLs: %(time)d" % { "time": elapsed, \
                                                    "nb": len(urls_to_download) }	
